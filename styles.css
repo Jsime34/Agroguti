@@ -1,9 +1,14 @@
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #bbb;
+}
+
 .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 16px 16px;
-    background-color: white;
+    background-color: #bbb;
 }
 
 .logo-placeholder img {
@@ -221,4 +226,156 @@ header h1 {
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    margin: 0 8px;
+    font-size: 20px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+/* Hover effects with brand colors */
+.social-icons a:hover .fa-facebook-f {
+    color: #1877F2; /* Facebook blue */
+}
+
+.social-icons a:hover .fa-linkedin-in {
+    color: #0A66C2; /* LinkedIn blue */
+}
+
+.social-icons a:hover .fa-whatsapp {
+    color: #25D366; /* WhatsApp green */
+}
+
+#nav-links li:hover{
+    background-color: #F26A2E;
+}
+
+.contact-container {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem;
+    flex-wrap: wrap; /* ensures mobile responsiveness */
+}
+
+.map-wrapper iframe {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.contact-text {
+    max-width: 300px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.contact-text p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* Fix para telefonos */
+
+@media (max-width: 768px) {
+
+  /* Header: Stack logo and nav vertically */
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .logo-placeholder img {
+    height: 80px;
+    width: auto;
+  }
+
+  nav .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+  }
+
+  nav .nav-links li {
+    display: block;
+    width: 100%;
+  }
+
+  nav .nav-links a {
+    padding: 10px 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 4px;
+  }
+
+  /* Dropdown menu width fix */
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  /* Slideshow */
+  .slideshow-container {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .prev, .next {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  /* Contact map and text: stack vertically */
+  .contact-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .contact-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  /* Footer: Stack text and icons */
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .social-icons {
+    margin-top: 0;
+  }
+
+  .social-icons a {
+    font-size: 24px;
+  }
+
+  body {
+    font-size: 16px;
+    padding: 0 1rem;
+  }
 }

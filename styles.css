@@ -148,6 +148,9 @@ header h1 {
   position: relative;
   margin: auto;
 }
+.slideshow-container img {
+  height: 100%;
+}
 
 /* Hide the images by default */
 .mySlides {

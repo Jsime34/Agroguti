@@ -117,13 +117,10 @@ header h1 {
   height: 100%;
 }
 
-/* Hover effect on the entire nav item */
-.nav-item:hover {
-  background-color: #F26A2E; /* Orange from logo */
-}
 
 .nav-item:hover a {
   color: white;
+  background-color: #F26A2E;
 }
 
 .map-container {
@@ -165,13 +162,16 @@ header h1 {
   top: 50%;
   width: auto;
   margin-top: -22px;
-  padding: 16px;
-  color: white;
   font-weight: bold;
-  font-size: 18px;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 24px;
+  padding: 18px;
+  color: #fff;
+  z-index: 10;
+  text-shadow: 1px 1px 4px #000;
 }
 
 /* Position the "next button" to the right */
@@ -187,7 +187,8 @@ header h1 {
 
 /* Caption text */
 .text {
-  color: #f2f2f2;
+  color: black;
+  background-color: beige;
   font-size: 15px;
   padding: 8px 12px;
   position: absolute;
@@ -286,6 +287,23 @@ header h1 {
     line-height: 1.5;
 }
 
+.main-text {
+    max-width: 1000px; /* Adjust as needed */
+    margin: 2rem auto;
+    padding: 0 1rem;
+    text-align: center;
+    color: #333;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.contact-item{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
 /* Fix para telefonos */
 
 @media (max-width: 768px) {
@@ -340,6 +358,10 @@ header h1 {
   .slideshow-container {
     width: 100%;
     padding: 0 1rem;
+  }
+
+  .slideshow-container img {
+    height: 200px;
   }
 
   .text {

@@ -42,7 +42,7 @@ nav .nav-links a:hover {
 header h1 {
     text-align: center;
     margin-top: 16px;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #222;
 }
 
@@ -278,7 +278,7 @@ header h1 {
 
 .contact-text {
     max-width: 300px;
-    font-size: 1rem;
+    font-size: 1.3rem;
     color: #333;
 }
 
@@ -295,6 +295,11 @@ header h1 {
     color: #333;
     font-size: 1.2rem;
     line-height: 1.6;
+}
+
+h3 {
+    color: #F26A2E;
+    margin-top: 1.5rem;
 }
 
 .contact-item{

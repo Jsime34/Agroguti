@@ -43,3 +43,23 @@ function currentSlide(n) {
 window.onload = function() {
     showSlides(slideIndex);
 };
+
+document.addEventListener("DOMContentLoaded", function() {
+    const observerOptions = {
+        threshold: 0.2 // Se activa cuando el 20% del elemento es visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    // Seleccionamos todas las secciones con la clase .reveal
+    const sectionsToReveal = document.querySelectorAll('.reveal');
+    sectionsToReveal.forEach((section) => {
+        observer.observe(section);
+    });
+});

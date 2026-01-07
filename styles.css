@@ -11,7 +11,7 @@ body.contact-page {
   background-position: center center;
   background-attachment: fixed;
   /* Keep a fallback background color in case image fails */
-  background-color: #bbb;
+  background-color: #F8F9FA;
   color: #222;
 }
 
@@ -72,6 +72,33 @@ header h1 {
     margin-top: 16px;
     font-size: 1.8rem;
     color: #222;
+}
+
+/* Title / display heading styles */
+header h1,
+.main-text h2,
+.main-text h3,
+.main-text h4 {
+  font-family: 'Montserrat', serif;
+  color: #1B4332; /* accent color for titles */
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Slightly smaller weight/color variant for subheadings */
+.main-text h3,
+.main-text h4 {
+  font-weight: 600;
+  color: #D94124;
+}
+
+/* Ensure paragraph/body text keeps the Lato font */
+body,
+.main-text p {
+  font-family: 'Open Sans', sans-serif;
+  color: #333333;
 }
 
 .footer-container {
@@ -355,6 +382,49 @@ h3 {
     align-items: center;
     gap: 10px;
     margin-bottom: 1rem;
+}
+
+/* Contenedor de Imagen Profesional */
+.image-container {
+    margin: 20px 0 40px 0;
+    overflow: hidden;
+    border-radius: 15px; /* Bordes redondeados modernos */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.animated-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.animated-img:hover {
+    transform: scale(1.05); /* Efecto zoom suave al pasar el mouse */
+}
+
+/* --- LÓGICA DE ANIMACIÓN AL HACER SCROLL --- */
+.reveal {
+    opacity: 0;
+    /* animate opacity and transform explicitly and hint to browser for smoother animation */
+    transition: opacity 700ms cubic-bezier(0.2, 1, 0.3, 1), transform 700ms cubic-bezier(0.2, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+/* Aparece desde la izquierda */
+.slide-left {
+    transform: translateX(-50px);
+}
+
+/* Aparece desde la derecha */
+.slide-right {
+    transform: translateX(50px);
+}
+
+/* Clase que activa la animación (vía JavaScript) */
+.reveal.active {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 /* Fix para telefonos */

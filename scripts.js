@@ -1,20 +1,21 @@
-let slideIndex = 1;
+let slideIndices = {}; // Object to hold slideIndex per slideshow
 
-function showSlides(n) {
+function showSlides(n, slideshowId) {
+    slideIndices[slideshowId] = slideIndices[slideshowId] || 1; // Initialize if not set
     let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
+    let slides = document.querySelectorAll(`#${slideshowId} .mySlides`);
+    let dots = document.querySelectorAll(`#${slideshowId} .dot`);
     
     // If no slides are found, stop here
     if (slides.length === 0) {
-        console.error("No slides found with class 'mySlides'");
+        console.error("No slides found for:", slideshowId);
         return;
     }
 
-    if (n > slides.length) {slideIndex = 1}    
-    if (n < 1) {slideIndex = slides.length}
+    if (n > slides.length) {slideIndices[slideshowId] = 1}    
+    if (n < 1) {slideIndices[slideshowId] = slides.length}
     
-    // Hide all
+    // Hide all for this slideshow
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";  
     }
@@ -23,25 +24,30 @@ function showSlides(n) {
     }
     
     // Show the active one
-    slides[slideIndex-1].style.display = "block";  
+    slides[slideIndices[slideshowId]-1].style.display = "block";  
     if (dots.length > 0) {
-        dots[slideIndex-1].className += " active";
+        dots[slideIndices[slideshowId]-1].className += " active";
     }
 }
 
 // Next/previous controls
-function plusSlides(n) {
-    showSlides(slideIndex += n);
+function plusSlides(n, slideshowId) {
+    slideIndices[slideshowId] = slideIndices[slideshowId] || 1;
+    showSlides(slideIndices[slideshowId] += n, slideshowId);
 }
 
 // Thumbnail controls
-function currentSlide(n) {
-    showSlides(slideIndex = n);
+function currentSlide(n, slideshowId) {
+    showSlides(slideIndices[slideshowId] = n, slideshowId);
 }
 
 // THE INITIALIZER: This runs as soon as the page loads
 window.onload = function() {
-    showSlides(slideIndex);
+    // Initialize each slideshow if present
+    if (document.getElementById('main-slideshow')) showSlides(1, 'main-slideshow');
+    if (document.getElementById('slideshow1')) showSlides(1, 'slideshow1');
+    if (document.getElementById('slideshow2')) showSlides(1, 'slideshow2');
+    if (document.getElementById('slideshow3')) showSlides(1, 'slideshow3');
 };
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -150,7 +156,12 @@ const texts = {
         "mexico_title": "MEXICO",
         "mexico_description": "México se constituye en el quinto país más extenso del continente americano y el tercero entre los países latinoamericanos. Este mercado creció a tasas elevadas en capsicum incluso durante los meses más críticos de la pandemia.",
         "spain_title": "ESPAÑA",
-        "spain_description": "España es un país miembro de la Unión Europea. Presenta una de las mayores tasas de inmigración a nivel mundial y ha alcanzado un gran progreso económico durante las últimas décadas. Sin embargo, permanece aún detrás de muchos países de Europa Occidental. Se consolidó como uno de los mercados con mayor acogida en capsicum peruanos."
+        "spain_description": "España es un país miembro de la Unión Europea. Presenta una de las mayores tasas de inmigración a nivel mundial y ha alcanzado un gran progreso económico durante las últimas décadas. Sin embargo, permanece aún detrás de muchos países de Europa Occidental. Se consolidó como uno de los mercados con mayor acogida en capsicum peruanos.",
+        "preview_titulo": "Nuestros Productos",
+        "preview_descripcion": "Descubre la calidad y frescura de nuestros principales cultivos de exportación.",
+        "preview_1": "Pimiento Páprika",
+        "preview_2": "Ajo",
+        "preview_3": "Pimiento Ancho"
     },
     "en": {
         "nav_inicio": "Home",
@@ -236,7 +247,12 @@ const texts = {
         "mexico_title": "MEXICO",
         "mexico_description": "Mexico is the fifth largest country in the American continent and the third among Latin American countries. This market grew at high rates in capsicum even during the most critical months of the pandemic.",
         "spain_title": "SPAIN",
-        "spain_description": "Spain is a member country of the European Union. It has one of the highest immigration rates in the world and has achieved great economic progress in recent decades. However, it still lags behind many Western European countries. It has consolidated as one of the markets with the greatest acceptance of Peruvian capsicum."
+        "spain_description": "Spain is a member country of the European Union. It has one of the highest immigration rates in the world and has achieved great economic progress in recent decades. However, it still lags behind many Western European countries. It has consolidated as one of the markets with the greatest acceptance of Peruvian capsicum.",
+        "preview_titulo": "Our Products",
+        "preview_descripcion": "Discover the quality and freshness of our main export products.",
+        "preview_1": "Paprika Pepper",
+        "preview_2": "Garlic",
+        "preview_3": "Ancho Chile Pepper"
     }
 };
 

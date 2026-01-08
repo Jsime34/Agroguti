@@ -49,7 +49,7 @@
         </div>
     </header>
     <main>
-        <div class="slideshow-container">
+        <div class="slideshow-container" id="main-slideshow">
 
         <div class="mySlides fade">
             <div class="numbertext">1 / 3</div>
@@ -69,15 +69,15 @@
             <div class="text" data-value="slide3_text">Hecho por una empresa familiar.</div>
         </div>
 
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <a class="prev" onclick="plusSlides(-1, 'main-slideshow')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 'main-slideshow')">&#10095;</a>
         </div>
         <br>
 
         <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(1, 'main-slideshow')"></span>
+        <span class="dot" onclick="currentSlide(2, 'main-slideshow')"></span>
+        <span class="dot" onclick="currentSlide(3, 'main-slideshow')"></span>
         </div>
         <div class="main-text">
             <h1 data-value="main_title">Agronegocios e Inversiones Gutierrez E.I.R.L.</h1>
@@ -87,6 +87,27 @@
                 manejo del cultivo, tiempo que ha servido para mejorar la calidad de nuestro producto de forma que 
                 llegue a satisfacer los mercados internacionales más exigentes.</p>
         </div>
+        <section class="products-preview reveal">
+            <div class="preview-text">
+                <h2 data-value="preview_titulo">Nuestros Productos</h2>
+                <p data-value="preview_descripcion">Descubre la calidad y frescura de nuestros principales cultivos de exportación.</p>
+            </div>
+
+            <div class="preview-grid">
+                <a href="paprika.html" class="product-card">
+                    <img src="images/paprika_1.jpeg" alt="Pimiento Páprika">
+                    <div class="card-title" data-value="preview-1">Pimiento Páprika</div>
+                </a>
+                <a href="garlic.html" class="product-card">
+                    <img src="images/paprika_2.avif" alt="Ajo">
+                    <div class="card-title" data-value="preview-2">Ajo</div>
+                </a>
+                <a href="pepper.html" class="product-card">
+                    <img src="images/ajo_2.jpg" alt="Pimiento Ancho">
+                    <div class="card-title" data-value="preview-3">Pimiento Ancho</div>
+                </a>
+            </div>
+        </section>
     </main>
     <footer>
         <div class="footer-container">

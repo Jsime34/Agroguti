@@ -18,29 +18,37 @@
             </div>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html" data-value="nav_inicio">Inicio</a></li>
                     <li class="dropdown">
-                    <a href="#">Productos</a>
+                    <a href="#" data-value="nav_productos">Productos</a>
                         <ul class="dropdown-content">
                             <li><a href="paprika.html">Pimiento Páprika</a></li>
                             <li><a href="garlic.html">Ajo</a></li>
                             <li><a href="pepper.html">Pimiento ancho</a></li>
                         </ul>
                     </li>
-                    <li><a href="about_us.html">Acerca de nosotros</a></li>
-                    <li><a href="contact_us.html">Contáctanos</a></li>
-                    <li><a href="about_us.html"><span class="fi fi-es" title="Español"></span></a></li>
-                    <li><a href="about_us_english.html"><span class="fi fi-us" title="English"></span></a></li>
+                    <li><a href="about_us.html" data-value="nav_about">Acerca de nosotros</a></li>
+                    <li><a href="contact_us.html" data-value="nav_contact">Contáctanos</a></li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="changeLanguage('es')">
+                            <span class="fi fi-es" title="Español"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="changeLanguage('en')">
+                            <span class="fi fi-us" title="English"></span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
-        <h1>AGRONEGOCIOS E INVERSIONES GUTIERREZ</h1>
+        <h1 data-value="main_title">AGRONEGOCIOS E INVERSIONES GUTIERREZ</h1>
     </header>
     <main>
         <div class="main-text">
             <section class="reveal slide-left">
-                <h2>Visión</h2>   
-                <p>Ser la compañía comercializadora de alimentos líder caracterizada por brindar un servicio 
+                <h2 data-value="vision_titulo">Visión</h2>   
+                <p data-value="vision_texto">Ser la compañía comercializadora de alimentos líder caracterizada por brindar un servicio 
                 de calidad en compromiso con las personas y respeto del medio ambiente...</p>
                 <div class="image-container">
                     <img src="images/proceso_1.jpg" alt="Visión Agronegocios" class="animated-img">
@@ -48,25 +56,25 @@
             </section>
 
             <section class="reveal slide-right">
-                <h2>Misión</h2>
-                <p>Generar valor manteniendo el compromiso de calidad, trazabilidad y salubridad con nuestros clientes.</p>
+                <h2 data-value="mision_titulo">Misión</h2>
+                <p data-value="mision_texto">Generar valor manteniendo el compromiso de calidad, trazabilidad y salubridad con nuestros clientes.</p>
                 <div class="image-container">
                     <img src="images/proceso_2.jpg" alt="Misión Agronegocios" class="animated-img">
                 </div>
             </section>
 
-            <h1>¿A que países exportamos?</h1>
-            <h2>ESTADOS UNIDOS</h2>
-            <p>Estados Unidos de América es una república federal constitucional compuesta por 50 estados y un distrito federal. 
+            <h1 data-value="export_countries_title">¿A que países exportamos?</h1>
+            <h2 data-value="usa_title">ESTADOS UNIDOS</h2>
+            <p data-value="usa_description">Estados Unidos de América es una república federal constitucional compuesta por 50 estados y un distrito federal. 
                 Es la principal economía del mundo. Este país tiene un alto poder adquisitivo. Es gran protagonista en el comercio exterior. 
                 Fue el segundo país exportador y primer importador de bienes en 2020. Fue el mercado más importante para las exportaciones de 
                 los capsicum peruanos.</p>
-            <h2>MEXICO</h2>
-            <p>México se constituye en el quinto país más extenso del continente americano y el tercero entre los países latinoamericanos.
+            <h2 data-value="mexico_title">MEXICO</h2>
+            <p data-value="mexico_description">México se constituye en el quinto país más extenso del continente americano y el tercero entre los países latinoamericanos.
             Este mercado creció a tasas elevadas en capsicum incluso durante los meses más críticos de la pandemia.
             </p>
-            <h2>ESPAÑA</h2>
-            <p>España es un país miembro de la Unión Europea. Presenta una de las mayores tasas de inmigración a nivel mundial y ha 
+            <h2 data-value="spain_title">ESPAÑA</h2>
+            <p data-value="spain_description">España es un país miembro de la Unión Europea. Presenta una de las mayores tasas de inmigración a nivel mundial y ha 
                 alcanzado un gran progreso económico durante las últimas décadas.
                 Sin embargo, permanece aún detrás de muchos países de Europa Occidental. Se consolidó como uno de los mercados 
                 con mayor acogida en capsicum peruanos.

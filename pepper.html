@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="script.js" defer></script>
+    <script src="scripts.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css">
 </head>
 <body>
@@ -18,43 +18,51 @@
             </div>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html" data-value="nav_inicio">Inicio</a></li>
                     <li class="dropdown">
-                    <a href="#">Productos</a>
+                    <a href="#" data-value="nav_productos">Productos</a>
                         <ul class="dropdown-content">
                             <li><a href="paprika.html">Ají Páprika</a></li>
                             <li><a href="garlic.html">Ajo</a></li>
                             <li><a href="pepper.html">Pimiento ancho</a></li>
                         </ul>
                     </li>
-                    <li><a href="about_us.html">Acerca de nosotros</a></li>
-                    <li><a href="contact_us.html">Contáctanos</a></li>
-                    <li><a href="pepper.html"><span class="fi fi-es" title="Español"></span></a></li>
-                    <li><a href="pepper_english.html"><span class="fi fi-us" title="English"></span></a></li>
+                    <li><a href="about_us.html" data-value="nav_about">Acerca de nosotros</a></li>
+                    <li><a href="contact_us.html" data-value="nav_contact">Contáctanos</a></li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="changeLanguage('es')">
+                            <span class="fi fi-es" title="Español"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="changeLanguage('en')">
+                            <span class="fi fi-us" title="English"></span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
-        <h1>AGRONEGOCIOS E INVERSIONES GUTIERREZ</h1>
+        <h1 data-value="main_title">AGRONEGOCIOS E INVERSIONES GUTIERREZ</h1>
     </header>
     <main>
         <div class="main-text">
-            <h2>Chile ancho</h2>   
-            <p>El chile poblano (fresco) o chile ancho (seco) es una variedad del chile Capsicum annuum. 
+            <h2 data-value="pepper_title">Chile ancho</h2>   
+            <p data-value="pepper_description">El chile poblano (fresco) o chile ancho (seco) es una variedad del chile Capsicum annuum. 
                 Es muy apreciado en la gastronomía mexicana, donde se usa en todo tipo de recetas, como en los populares 
                 chiles rellenos. En comparación con otros tipos de chiles, el poblano es un fruto grande y con bajo contenido de 
                 capsaicina (entre 1.000–2.000 en la escala Scoville), por lo que no es muy picante.</p>
-            <h2>Ficha técnica</h2>
-            <h3>Color</h3>
-            <h4>Rojizo oscuro</h4>
-            <h3>Tamaño</h3>
-            <h4>>12cm - 90% max.</h4>
-            <h4>&lt;12cm - 10% min.</h4>
-            <h3>Packing</h3>
-            <h4>Cajas de cartón de 11.36 kg o 25 lb</h4>
-            <h4>Pacas prensadas de 75 kg o 165 lb</h4>
-            <h3>Humedad</h3>
-            <h4>>13% HR</h4>
-            <h2>Galería</h2>
+            <h2 data-value="pepper_specs_title">Ficha técnica</h2>
+            <h3 data-value="pepper_color_title">Color</h3>
+            <h4 data-value="pepper_color_value">Rojizo oscuro</h4>
+            <h3 data-value="pepper_size_title">Tamaño</h3>
+            <h4 data-value="pepper_size_value1">&gt;12cm - 90% max.</h4>
+            <h4 data-value="pepper_size_value2">&lt;12cm - 10% min.</h4>
+            <h3 data-value="pepper_packing_title">Packing</h3>
+            <h4 data-value="pepper_packing_value1">Cajas de cartón de 11.36 kg o 25 lb</h4>
+            <h4 data-value="pepper_packing_value2">Pacas prensadas de 75 kg o 165 lb</h4>
+            <h3 data-value="pepper_humidity_title">Humedad</h3>
+            <h4 data-value="pepper_humidity_value">&gt;13% HR</h4>
+            <h2 data-value="pepper_gallery_title">Galería</h2>
         </div>
     </main>
     <footer>

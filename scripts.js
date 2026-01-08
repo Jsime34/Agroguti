@@ -63,3 +63,244 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(section);
     });
 });
+
+// Embedded translation data (moved from languages.json to avoid fetch issues)
+const texts = {
+    "es": {
+        "nav_inicio": "Inicio",
+        "nav_productos": "Productos",
+        "nav_about": "Acerca de nosotros",
+        "nav_contact": "Contáctanos",
+        "vision_titulo": "Visión",
+        "vision_texto": "Ser la compañía comercializadora de alimentos líder caracterizada por brindar un servicio de calidad...",
+        "mision_titulo": "Misión",
+        "mision_texto": "Generar valor manteniendo el compromiso de calidad, trazabilidad y salubridad con nuestros clientes.",
+        "slide1_text": "Los mejores productos y la mejor calidad",
+        "slide2_text": "Hecho por una cadena autosostenible.",
+        "slide3_text": "Hecho por una empresa familiar.",
+        "main_title": "Agronegocios e Inversiones Gutierrez E.I.R.L.",
+        "main_description": "Somos una empresa dedicada a la producción y comercialización de ajo y capsicum, entre ají Orange, ají amarillo, pimiento ancho, ají panca, guajillo, jalapeño y ají páprika. Constituyéndose este último en el mayor porcentaje de producción y teniendo a favor más de 20 años de experiencia en el manejo del cultivo, tiempo que ha servido para mejorar la calidad de nuestro producto de forma que llegue a satisfacer los mercados internacionales más exigentes.",
+        "paprika_title": "Ají Páprika",
+        "paprika_description": "Páprika (capsicum annum L.) es una variedad de pimiento dulce con la particularidad de ser alargado, distinto al \"pimiento rojo\" o \"pimentón\". Sus características de color, intensidad de picante y sabor, cambia de acuerdo a las mejoras genéticas de la planta y las técnicas de cultivo.",
+        "paprika_specs_title": "Ficha técnica",
+        "paprika_color_title": "Color",
+        "paprika_color_value": "Rojizo",
+        "paprika_size_title": "Tamaño",
+        "paprika_size_value1": ">12cm - 90% max.",
+        "paprika_size_value2": "<12cm - 10% min.",
+        "paprika_packing_title": "Packing",
+        "paprika_packing_value1": "Cajas de cartón de 11.36 kg o 25 lb",
+        "paprika_packing_value2": "Pacas prensadas de 75 kg o 165 lb",
+        "paprika_humidity_title": "Humedad",
+        "paprika_humidity_value": ">13% HR",
+        "paprika_gallery_title": "Galería",
+        "pepper_title": "Chile ancho",
+        "pepper_description": "El chile poblano (fresco) o chile ancho (seco) es una variedad del chile Capsicum annuum. Es muy apreciado en la gastronomía mexicana, donde se usa en todo tipo de recetas, como en los populares chiles rellenos. En comparación con otros tipos de chiles, el poblano es un fruto grande y con bajo contenido de capsaicina (entre 1.000–2.000 en la escala Scoville), por lo que no es muy picante.",
+        "pepper_specs_title": "Ficha técnica",
+        "pepper_color_title": "Color",
+        "pepper_color_value": "Rojizo oscuro",
+        "pepper_size_title": "Tamaño",
+        "pepper_size_value1": ">12cm - 90% max.",
+        "pepper_size_value2": "<12cm - 10% min.",
+        "pepper_packing_title": "Packing",
+        "pepper_packing_value1": "Cajas de cartón de 11.36 kg o 25 lb",
+        "pepper_packing_value2": "Pacas prensadas de 75 kg o 165 lb",
+        "pepper_humidity_title": "Humedad",
+        "pepper_humidity_value": ">13% HR",
+        "pepper_gallery_title": "Galería",
+        "garlic_title": "Ajo",
+        "garlic_description": "El ajo (Allium sativum) es una planta culinaria conocida por sus propiedades medicinales y beneficios para la salud, como el fortalecimiento del sistema inmunitario, la mejora de la salud cardiovascular y la reducción de la inflamación",
+        "garlic_varieties_title": "Variedades",
+        "garlic_white_title": "Ajo Chino Blanco",
+        "garlic_white_color": "Color: Blanco",
+        "garlic_white_size_title": "Tamaño",
+        "garlic_white_size1": "Calibre 5 - 46 mm a 55 mm",
+        "garlic_white_size2": "Calibre 6 - 56 mm a 65 mm",
+        "garlic_white_size3": "Calibre 7 - 66 mm a 75 mm",
+        "garlic_white_packing_title": "Packing",
+        "garlic_white_packing": "Cajas de cartón de 10 kg o 22 lb / Mallas de 25 kg o 55 lb",
+        "garlic_purple_title": "Ajo Chino Morado",
+        "garlic_purple_color_title": "Color",
+        "garlic_purple_color_value": "Morado",
+        "garlic_purple_size_title": "Tamaño",
+        "garlic_purple_size1": "Calibre 5 - 55 mm a 59 mm",
+        "garlic_purple_size2": "Calibre 6 - 56 mm a 65 mm",
+        "garlic_purple_size3": "Calibre 7 - 66 mm a 75 mm",
+        "garlic_purple_packing_title": "Packing",
+        "garlic_purple_packing1": "Cajas de cartón de 10 kg o 22 lb",
+        "garlic_purple_packing2": "Mallas de 25 kg o 55 lb",
+        "garlic_gallery_title": "Gallery",
+        "garlic_napuri_title": "Ajo Napurí Mejorado",
+        "garlic_napuri_color_title": "Color",
+        "garlic_napuri_color_value": "Morado o blanco",
+        "garlic_napuri_size_title": "Tamaño",
+        "garlic_napuri_size1": "Calibre 5 - 46 mm a 55 mm",
+        "garlic_napuri_size2": "Calibre 6 - 56 mm a 65 mm",
+        "garlic_napuri_size3": "Calibre 7 - 66 mm a 75 mm",
+        "garlic_napuri_packing_title": "Packing",
+        "garlic_napuri_packing1": "Cajas de cartón de 10 kg o 22 lb",
+        "garlic_napuri_packing2": "Mallas de 25 kg o 55 lb",
+        "contact_address": "Dirección: Calle Las Moras Lote 1 y Lote 2 Villa San Pedro y San Pablo",
+        "contact_phone": "Contáctanos al: +51956899907",
+        "contact_email": "Email: jgutierrez@agroguti.com",
+        "contact_hours": "Horario de atención: 6:00-18:00",
+        "export_countries_title": "¿A que países exportamos?",
+        "usa_title": "ESTADOS UNIDOS",
+        "usa_description": "Estados Unidos de América es una república federal constitucional compuesta por 50 estados y un distrito federal. Es la principal economía del mundo. Este país tiene un alto poder adquisitivo. Es gran protagonista en el comercio exterior. Fue el segundo país exportador y primer importador de bienes en 2020. Fue el mercado más importante para las exportaciones de los capsicum peruanos.",
+        "mexico_title": "MEXICO",
+        "mexico_description": "México se constituye en el quinto país más extenso del continente americano y el tercero entre los países latinoamericanos. Este mercado creció a tasas elevadas en capsicum incluso durante los meses más críticos de la pandemia.",
+        "spain_title": "ESPAÑA",
+        "spain_description": "España es un país miembro de la Unión Europea. Presenta una de las mayores tasas de inmigración a nivel mundial y ha alcanzado un gran progreso económico durante las últimas décadas. Sin embargo, permanece aún detrás de muchos países de Europa Occidental. Se consolidó como uno de los mercados con mayor acogida en capsicum peruanos."
+    },
+    "en": {
+        "nav_inicio": "Home",
+        "nav_productos": "Products",
+        "nav_about": "About us",
+        "nav_contact": "Contact us",
+        "vision_titulo": "Vision",
+        "vision_texto": "To be the leading food marketing company characterized by providing a quality service...",
+        "mision_titulo": "Mission",
+        "mision_texto": "To generate value by maintaining the commitment to quality, traceability, and health with our clients.",
+        "slide1_text": "The best products and the best quality",
+        "slide2_text": "Made by a self-sustaining chain.",
+        "slide3_text": "Made by a family business.",
+        "main_title": "Agronegocios e Inversiones Gutierrez E.I.R.L.",
+        "main_description": "We are a company dedicated to the production and marketing of garlic and capsicum, including Orange chili, yellow chili, ancho pepper, panca chili, guajillo, jalapeño, and paprika chili. The latter constitutes the largest percentage of production and has over 20 years of experience in crop management, time that has served to improve the quality of our product so that it meets the most demanding international markets.",
+        "paprika_title": "Paprika Chili",
+        "paprika_description": "Paprika (capsicum annum L.) is a variety of sweet pepper with the particularity of being elongated, different from \"red pepper\" or \"bell pepper\". Its characteristics of color, spicy intensity, and flavor change according to the genetic improvements of the plant and cultivation techniques.",
+        "paprika_specs_title": "Technical Sheet",
+        "paprika_color_title": "Color",
+        "paprika_color_value": "Reddish",
+        "paprika_size_title": "Size",
+        "paprika_size_value1": ">12cm - 90% max.",
+        "paprika_size_value2": "<12cm - 10% min.",
+        "paprika_packing_title": "Packing",
+        "paprika_packing_value1": "Cardboard boxes of 11.36 kg or 25 lb",
+        "paprika_packing_value2": "Pressed bales of 75 kg or 165 lb",
+        "paprika_humidity_title": "Humidity",
+        "paprika_humidity_value": ">13% RH",
+        "paprika_gallery_title": "Gallery",
+        "pepper_title": "Ancho Chili",
+        "pepper_description": "The poblano chili (fresh) or ancho chili (dry) is a variety of Capsicum annuum chili. It is highly appreciated in Mexican cuisine, where it is used in all kinds of recipes, such as the popular stuffed chiles. Compared to other types of chiles, the poblano is a large fruit with low capsaicin content (between 1,000–2,000 on the Scoville scale), so it is not very spicy.",
+        "pepper_specs_title": "Technical Sheet",
+        "pepper_color_title": "Color",
+        "pepper_color_value": "Dark reddish",
+        "pepper_size_title": "Size",
+        "pepper_size_value1": ">12cm - 90% max.",
+        "pepper_size_value2": "<12cm - 10% min.",
+        "pepper_packing_title": "Packing",
+        "pepper_packing_value1": "Cardboard boxes of 11.36 kg or 25 lb",
+        "pepper_packing_value2": "Pressed bales of 75 kg or 165 lb",
+        "pepper_humidity_title": "Humidity",
+        "pepper_humidity_value": ">13% RH",
+        "pepper_gallery_title": "Gallery",
+        "garlic_title": "Garlic",
+        "garlic_description": "Garlic (Allium sativum) is a culinary plant known for its medicinal properties and health benefits, such as strengthening the immune system, improving cardiovascular health, and reducing inflammation",
+        "garlic_varieties_title": "Varieties",
+        "garlic_white_title": "Chinese White Garlic",
+        "garlic_white_color": "Color: White",
+        "garlic_white_size_title": "Size",
+        "garlic_white_size1": "Caliber 5 - 46 mm to 55 mm",
+        "garlic_white_size2": "Caliber 6 - 56 mm to 65 mm",
+        "garlic_white_size3": "Caliber 7 - 66 mm to 75 mm",
+        "garlic_white_packing_title": "Packing",
+        "garlic_white_packing": "Cardboard boxes of 10 kg or 22 lb / Nets of 25 kg or 55 lb",
+        "garlic_purple_title": "Chinese Purple Garlic",
+        "garlic_purple_color_title": "Color",
+        "garlic_purple_color_value": "Purple",
+        "garlic_purple_size_title": "Size",
+        "garlic_purple_size1": "Caliber 5 - 55 mm to 59 mm",
+        "garlic_purple_size2": "Caliber 6 - 56 mm to 65 mm",
+        "garlic_purple_size3": "Caliber 7 - 66 mm to 75 mm",
+        "garlic_purple_packing_title": "Packing",
+        "garlic_purple_packing1": "Cardboard boxes of 10 kg or 22 lb",
+        "garlic_purple_packing2": "Nets of 25 kg or 55 lb",
+        "garlic_gallery_title": "Gallery",
+        "garlic_napuri_title": "Improved Napurí Garlic",
+        "garlic_napuri_color_title": "Color",
+        "garlic_napuri_color_value": "Purple or white",
+        "garlic_napuri_size_title": "Size",
+        "garlic_napuri_size1": "Caliber 5 - 46 mm to 55 mm",
+        "garlic_napuri_size2": "Caliber 6 - 56 mm to 65 mm",
+        "garlic_napuri_size3": "Caliber 7 - 66 mm to 75 mm",
+        "garlic_napuri_packing_title": "Packing",
+        "garlic_napuri_packing1": "Cardboard boxes of 10 kg or 22 lb",
+        "garlic_napuri_packing2": "Nets of 25 kg or 55 lb",
+        "contact_address": "Address: Calle Las Moras Lote 1 y Lote 2 Villa San Pedro y San Pablo",
+        "contact_phone": "Contact us at: +51956899907",
+        "contact_email": "Email: jgutierrez@agroguti.com",
+        "contact_hours": "Business hours: 6:00-18:00",
+        "export_countries_title": "Which countries do we export to?",
+        "usa_title": "UNITED STATES",
+        "usa_description": "The United States of America is a federal constitutional republic composed of 50 states and a federal district. It is the world's leading economy. This country has high purchasing power. It is a major player in foreign trade. It was the second largest exporter and first importer of goods in 2020. It was the most important market for Peruvian capsicum exports.",
+        "mexico_title": "MEXICO",
+        "mexico_description": "Mexico is the fifth largest country in the American continent and the third among Latin American countries. This market grew at high rates in capsicum even during the most critical months of the pandemic.",
+        "spain_title": "SPAIN",
+        "spain_description": "Spain is a member country of the European Union. It has one of the highest immigration rates in the world and has achieved great economic progress in recent decades. However, it still lags behind many Western European countries. It has consolidated as one of the markets with the greatest acceptance of Peruvian capsicum."
+    }
+};
+
+function changeLanguage(lang) {
+    if (!texts || !texts[lang]) {
+        console.warn("No translations found for:", lang);
+        return;
+    }
+
+    // Accept either data-value or data-i18n attributes
+    const elementsToTranslate = document.querySelectorAll('[data-value],[data-i18n]');
+
+    elementsToTranslate.forEach(element => {
+        const rawKey = element.getAttribute('data-value') || element.getAttribute('data-i18n');
+        if (!rawKey) return;
+
+        // Try several normalized key forms
+        const candidates = [
+            rawKey,
+            rawKey.replace(/-/g, '_'),
+            rawKey.replace(/_/g, '-'),
+            rawKey.toLowerCase(),
+            rawKey.toLowerCase().replace(/-/g, '_')
+        ];
+
+        let applied = false;
+        for (const key of candidates) {
+            if (Object.prototype.hasOwnProperty.call(texts[lang], key)) {
+                element.innerHTML = texts[lang][key];
+                applied = true;
+                break;
+            }
+        }
+
+        // Fallback: try nested/path lookup using dot-notation or parts
+        if (!applied) {
+            const parts = rawKey.split('.');
+            let node = texts[lang];
+            for (const p of parts) {
+                const pKey = p.replace(/-/g, '_');
+                if (node && Object.prototype.hasOwnProperty.call(node, pKey)) {
+                    node = node[pKey];
+                } else {
+                    node = undefined;
+                    break;
+                }
+            }
+            if (node !== undefined) {
+                element.innerHTML = node;
+                applied = true;
+            }
+        }
+
+        // If still not applied, optional: leave existing content and warn
+        if (!applied) {
+            // console.debug(`No translation for key "${rawKey}" in "${lang}"`);
+        }
+    });
+
+    localStorage.setItem('preferredLang', lang);
+}
+
+// Cargar el idioma guardado al abrir la página
+document.addEventListener("DOMContentLoaded", () => {
+    const savedLang = localStorage.getItem('preferredLang') || 'es';
+    changeLanguage(savedLang);
+});

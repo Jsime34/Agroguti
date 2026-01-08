@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css">
-    <script src="script.js" defer></script>
+    <script src="scripts.js" defer></script>
 </head>
 <body class="contact-page">
     <header>
@@ -18,23 +18,31 @@
             </div>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html" data-value="nav_inicio">Inicio</a></li>
                     <li class="dropdown">
-                    <a href="#">Productos</a>
+                    <a href="#" data-value="nav_productos">Productos</a>
                         <ul class="dropdown-content">
                             <li><a href="paprika.html">Ají Páprika</a></li>
                             <li><a href="garlic.html">Ajo</a></li>
                             <li><a href="pepper.html">Pimiento ancho</a></li>
                         </ul>
                     </li>
-                    <li><a href="about_us.html">Acerca de nosotros</a></li>
-                    <li><a href="contact_us.html">Contáctanos</a></li>
-                    <li><a href="contact_us.html"><span class="fi fi-es" title="Español"></span></a></li>
-                    <li><a href="contact_us_english.html"><span class="fi fi-us" title="English"></span></a></li>
+                    <li><a href="about_us.html" data-value="nav_about">Acerca de nosotros</a></li>
+                    <li><a href="contact_us.html" data-value="nav_contact">Contáctanos</a></li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="changeLanguage('es')">
+                            <span class="fi fi-es" title="Español"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="changeLanguage('en')">
+                            <span class="fi fi-us" title="English"></span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
-        <h1>AGRONEGOCIOS E INVERSIONES GUTIERREZ</h1>
+        <h1 data-value="main_title">AGRONEGOCIOS E INVERSIONES GUTIERREZ</h1>
     </header>
     <main>
         <div class="contact-container">
@@ -49,10 +57,10 @@
                 </iframe>
             </div>
             <div class="contact-text">
-                <div class="contact-item"><i class="fa-solid fa-location-dot"></i><p>Dirección: Calle Las Moras Lote 1 y Lote 2 Villa San Pedro y San Pablo</p></div>
-                <div class="contact-item"><i class="fa-solid fa-phone"></i><p>Contáctanos al: +51956899907</p></div>                
-                <div class="contact-item"><i class="fa-solid fa-envelope"></i><p>Email: jgutierrez@agroguti.com</p></div>
-                <div class="contact-item"><i class="fa-solid fa-clock"></i><p>Horario de atención: 6:00-18:00</p></div>
+                <div class="contact-item"><i class="fa-solid fa-location-dot"></i><p data-value="contact_address">Dirección: Calle Las Moras Lote 1 y Lote 2 Villa San Pedro y San Pablo</p></div>
+                <div class="contact-item"><i class="fa-solid fa-phone"></i><p data-value="contact_phone">Contáctanos al: +51956899907</p></div>                
+                <div class="contact-item"><i class="fa-solid fa-envelope"></i><p data-value="contact_email">Email: jgutierrez@agroguti.com</p></div>
+                <div class="contact-item"><i class="fa-solid fa-clock"></i><p data-value="contact_hours">Horario de atención: 6:00-18:00</p></div>
             </div>
         </div>
         <!-- background image moved to CSS for this page (body.contact-page) -->

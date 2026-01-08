@@ -18,60 +18,68 @@
             </div>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html" data-value="nav_inicio">Inicio</a></li>
                     <li class="dropdown">
-                    <a href="#">Productos</a>
+                    <a href="#" data-value="nav_productos">Productos</a>
                         <ul class="dropdown-content">
                             <li><a href="paprika.html">Ají Páprika</a></li>
                             <li><a href="garlic.html">Ajo</a></li>
                             <li><a href="pepper.html">Pimiento ancho</a></li>
                         </ul>
                     </li>
-                    <li><a href="about_us.html">Acerca de nosotros</a></li>
-                    <li><a href="contact_us.html">Contáctanos</a></li>
-                    <li><a href="garlic.html"><span class="fi fi-es" title="Español"></span></a></li>
-                    <li><a href="garlic_english.html"><span class="fi fi-us" title="English"></span></a></li>
+                    <li><a href="about_us.html" data-value="nav_about">Acerca de nosotros</a></li>
+                    <li><a href="contact_us.html" data-value="nav_contact">Contáctanos</a></li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="changeLanguage('es')">
+                            <span class="fi fi-es" title="Español"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="changeLanguage('en')">
+                            <span class="fi fi-us" title="English"></span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
-        <h1>AGRONEGOCIOS E INVERSIONES GUTIERREZ</h1>
+        <h1 data-value="main_title">AGRONEGOCIOS E INVERSIONES GUTIERREZ</h1>
     </header>
         <div class="main-text">
             <main>
-                <h2>Ajo</h2>   
-                <p>El ajo (Allium sativum) es una planta culinaria conocida por sus propiedades medicinales y beneficios para la salud, 
+                <h2 data-value="garlic_title">Ajo</h2>   
+                <p data-value="garlic_description">El ajo (Allium sativum) es una planta culinaria conocida por sus propiedades medicinales y beneficios para la salud, 
                     como el fortalecimiento del sistema inmunitario, la mejora de la salud cardiovascular y la reducción de la inflamación </p>
-                <h2>Variedades</h2>
+                <h2 data-value="garlic_varieties_title">Variedades</h2>
 
                 <section id="ajo-blanco">
-                    <h2>Ajo Chino Blanco</h2>
-                    <h3>Color: Blanco</h3>
-                    <h3>Tamaño</h3>
+                    <h2 data-value="garlic_white_title">Ajo Chino Blanco</h2>
+                    <h3 data-value="garlic_white_color">Color: Blanco</h3>
+                    <h3 data-value="garlic_white_size_title">Tamaño</h3>
                     <ul>
-                        <li>Calibre 5 - 46 mm a 55 mm</li>
-                        <li>Calibre 6 - 56 mm a 65 mm</li>
-                        <li>Calibre 7 - 66 mm a 75 mm</li>
+                        <li data-value="garlic_white_size1">Calibre 5 - 46 mm a 55 mm</li>
+                        <li data-value="garlic_white_size2">Calibre 6 - 56 mm a 65 mm</li>
+                        <li data-value="garlic_white_size3">Calibre 7 - 66 mm a 75 mm</li>
                     </ul>
-                    <h3>Packing</h3>
-                    <p>Cajas de cartón de 10 kg o 22 lb / Mallas de 25 kg o 55 lb</p>
+                    <h3 data-value="garlic_white_packing_title">Packing</h3>
+                    <p data-value="garlic_white_packing">Cajas de cartón de 10 kg o 22 lb / Mallas de 25 kg o 55 lb</p>
 
                     <div class="slideshow-container">
                         <div class="mySlides fade">
                             <div class="numbertext">1 / 3</div>
                             <img src="images/ajo_1.jpg" style="width:100%">
-                            <div class="text">Los mejores productos y la mejor calidad</div>
+                            <div class="text" data-value="slide1_text">Los mejores productos y la mejor calidad</div>
                         </div>
 
                         <div class="mySlides fade">
                             <div class="numbertext">2 / 3</div>
                             <img src="images/ajo_2.jpg" style="width:100%">
-                            <div class="text">Hecho por una cadena autosostenible.</div>
+                            <div class="text" data-value="slide2_text">Hecho por una cadena autosostenible.</div>
                         </div>
 
                         <div class="mySlides fade">
                             <div class="numbertext">3 / 3</div>
                             <img src="images/ajo_3.jpeg" style="width:100%">
-                            <div class="text">Hecho por una empresa familiar.</div>
+                            <div class="text" data-value="slide3_text">Hecho por una empresa familiar.</div>
                         </div>
 
                         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -84,28 +92,28 @@
                         <span class="dot" onclick="currentSlide(3)"></span>
                     </div>
                 </section>
-                <h2>Ajo Chino Morado</h2>
-                <h3>Color</h3>
-                <h4>Morado</h4>
-                <h3>Tamaño</h3>
-                <h4>Calibre 5 - 55 mm a 59 mm</h4>
-                <h4>Calibre 6 - 56 mm a 65 mm</h4>
-                <h4>Calibre 7 - 66 mm a 75 mm</h4>
-                <h3>Packing</h3>
-                <h4>Cajas de cartón de 10 kg o 22 lb</h4>
-                <h4>Mallas de 25 kg o 55 lb</h4>
-                <h2>Gallery</h2>
-                <h2>Ajo Napurí Mejorado</h2>
-                <h3>Color</h3>
-                <h4>Morado o blanco</h4>
-                <h3>Tamaño</h3>
-                <h4>Calibre 5 - 46 mm a 55 mm</h4>
-                <h4>Calibre 6 - 56 mm a 65 mm</h4>
-                <h4>Calibre 7 - 66 mm a 75 mm</h4>
-                <h3>Packing</h3>
-                <h4>Cajas de cartón de 10 kg o 22 lb</h4>
-                <h4>Mallas de 25 kg o 55 lb</h4>
-                <h2>Gallery</h2>
+                <h2 data-value="garlic_purple_title">Ajo Chino Morado</h2>
+                <h3 data-value="garlic_purple_color_title">Color</h3>
+                <h4 data-value="garlic_purple_color_value">Morado</h4>
+                <h3 data-value="garlic_purple_size_title">Tamaño</h3>
+                <h4 data-value="garlic_purple_size1">Calibre 5 - 55 mm a 59 mm</h4>
+                <h4 data-value="garlic_purple_size2">Calibre 6 - 56 mm a 65 mm</h4>
+                <h4 data-value="garlic_purple_size3">Calibre 7 - 66 mm a 75 mm</h4>
+                <h3 data-value="garlic_purple_packing_title">Packing</h3>
+                <h4 data-value="garlic_purple_packing1">Cajas de cartón de 10 kg o 22 lb</h4>
+                <h4 data-value="garlic_purple_packing2">Mallas de 25 kg o 55 lb</h4>
+                <h2 data-value="garlic_gallery_title">Gallery</h2>
+                <h2 data-value="garlic_napuri_title">Ajo Napurí Mejorado</h2>
+                <h3 data-value="garlic_napuri_color_title">Color</h3>
+                <h4 data-value="garlic_napuri_color_value">Morado o blanco</h4>
+                <h3 data-value="garlic_napuri_size_title">Tamaño</h3>
+                <h4 data-value="garlic_napuri_size1">Calibre 5 - 46 mm a 55 mm</h4>
+                <h4 data-value="garlic_napuri_size2">Calibre 6 - 56 mm a 65 mm</h4>
+                <h4 data-value="garlic_napuri_size3">Calibre 7 - 66 mm a 75 mm</h4>
+                <h3 data-value="garlic_napuri_packing_title">Packing</h3>
+                <h4 data-value="garlic_napuri_packing1">Cajas de cartón de 10 kg o 22 lb</h4>
+                <h4 data-value="garlic_napuri_packing2">Mallas de 25 kg o 55 lb</h4>
+                <h2 data-value="garlic_gallery_title">Gallery</h2>
             </main>
         </div>
     <footer>

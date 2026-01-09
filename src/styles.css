@@ -1,6 +1,6 @@
 body {
     font-family: 'Lato', sans-serif;
-    background-image: url('images/fondo.png');
+    background-image: url('/images/fondo.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -11,7 +11,7 @@ body {
 
 /* Contact page specific background */
 body.contact-page {
-  background-image: url('images/fondo.png');
+  background-image: url('/images/fondo.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -47,6 +47,20 @@ footer {
   z-index: 1;
 }
 
+.top-banner {
+  background-color: #23623D;
+  padding: 8px 16px;
+  text-align: center;
+}
+
+.banner-text {
+  margin: 0;
+  font-size: 0.85rem;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
 .header-container {
     display: flex;
     align-items: center;
@@ -73,10 +87,18 @@ nav .nav-links li {
 }
 
 nav .nav-links a {
+    font-family: 'Open Sans', sans-serif;
     text-decoration: none;
     color: #333;
     font-weight: 500;
     transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav .nav-links a i {
+    font-size: 0.75rem;
 }
 
 nav .nav-links a:hover {
@@ -152,6 +174,7 @@ body,
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  flex-direction: row;
 }
 
 /* Hover effect for dropdown items */
@@ -187,6 +210,7 @@ body,
   text-decoration: none;
   width: 100%;
   height: 100%;
+  font-weight: 900;
 }
 
 
@@ -425,8 +449,8 @@ h3 {
 /* --- LÓGICA DE ANIMACIÓN AL HACER SCROLL --- */
 .reveal {
     z-index: 1;
-    opacity: 0;
-    /* animate opacity and transform explicitly and hint to browser for smoother animation */
+    opacity: 1 !important; /* Forzado a 1 para que el contenido aparezca */
+    transform: none !important; /* Quitamos el desplazamiento inicial */
     transition: opacity 700ms cubic-bezier(0.2, 1, 0.3, 1), transform 700ms cubic-bezier(0.2, 1, 0.3, 1);
     will-change: opacity, transform;
 }
@@ -516,6 +540,32 @@ h3 {
     transform: scale(1.1);
 }
 
+/* Seleccionamos específicamente los botones de idioma para no afectar otros botones */
+.lang-btn {
+    background-color: transparent !important; /* Elimina el fondo gris */
+    border: none !important;                  /* Elimina el borde */
+    padding: 0 !important;                    /* Elimina espacio interno */
+    cursor: pointer;                          /* Puntero de mano */
+    display: inline-flex;                     /* Alinea la bandera perfectamente */
+    align-items: center;
+    outline: none;                            /* Quita el recuadro al hacer clic */
+    box-shadow: none !important;              /* Quita sombras raras */
+}
+
+/* Estilo para la bandera */
+.fi {
+    width: 24px;              /* Tamaño ideal para un menú */
+    line-height: 1em;
+    border-radius: 2px;       /* Bordes ligeramente suaves */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Sombra sutil para que resalte */
+}
+
+/* Efecto al pasar el mouse */
+.lang-btn:hover .fi {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
 @media (max-width: 768px) {
 
   /* Header: Stack logo and nav vertically */
@@ -548,7 +598,6 @@ h3 {
     display: block;
     width: 100%;
     text-align: center;
-    background-color: #fff;
     border-radius: 4px;
   }
 
@@ -653,4 +702,14 @@ h3 {
     .garlic-text, .garlic-slideshow {
         max-width: 100%;
     }
+
+}
+.dropdown > a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dropdown > a i {
+  font-size: 0.75rem;
 }

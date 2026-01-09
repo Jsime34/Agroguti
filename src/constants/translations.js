@@ -1,81 +1,8 @@
-let slideIndices = {}; // Object to hold slideIndex per slideshow
-
-function showSlides(n, slideshowId) {
-    slideIndices[slideshowId] = slideIndices[slideshowId] || 1; // Initialize if not set
-    let i;
-    let slides = document.querySelectorAll(`#${slideshowId} .mySlides`);
-    let dots = document.querySelectorAll(`#${slideshowId} .dot`);
-    
-    // If no slides are found, stop here
-    if (slides.length === 0) {
-        console.error("No slides found for:", slideshowId);
-        return;
-    }
-
-    if (n > slides.length) {slideIndices[slideshowId] = 1}    
-    if (n < 1) {slideIndices[slideshowId] = slides.length}
-    
-    // Hide all for this slideshow
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    
-    // Show the active one
-    slides[slideIndices[slideshowId]-1].style.display = "block";  
-    if (dots.length > 0) {
-        dots[slideIndices[slideshowId]-1].className += " active";
-    }
-}
-
-// Next/previous controls
-function plusSlides(n, slideshowId) {
-    slideIndices[slideshowId] = slideIndices[slideshowId] || 1;
-    showSlides(slideIndices[slideshowId] += n, slideshowId);
-}
-
-// Thumbnail controls
-function currentSlide(n, slideshowId) {
-    showSlides(slideIndices[slideshowId] = n, slideshowId);
-}
-
-// THE INITIALIZER: This runs as soon as the page loads
-window.onload = function() {
-    // Initialize each slideshow if present
-    if (document.getElementById('main-slideshow')) showSlides(1, 'main-slideshow');
-    if (document.getElementById('slideshow1')) showSlides(1, 'slideshow1');
-    if (document.getElementById('slideshow2')) showSlides(1, 'slideshow2');
-    if (document.getElementById('slideshow3')) showSlides(1, 'slideshow3');
-};
-
-document.addEventListener("DOMContentLoaded", function() {
-    const observerOptions = {
-        threshold: 0.2 // Se activa cuando el 20% del elemento es visible
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
-        });
-    }, observerOptions);
-
-    // Seleccionamos todas las secciones con la clase .reveal
-    const sectionsToReveal = document.querySelectorAll('.reveal');
-    sectionsToReveal.forEach((section) => {
-        observer.observe(section);
-    });
-});
-
-// Embedded translation data (moved from languages.json to avoid fetch issues)
-const texts = {
+export const translations = {
     "es": {
         "nav_inicio": "Inicio",
-        "nav_productos": "Productos",
-        "nav_about": "Acerca de nosotros",
+        "nav_productos": "Lo que ofrecemos",
+        "nav_about": "Quienes somos",
         "nav_contact": "Contáctanos",
         "vision_titulo": "Visión",
         "vision_texto": "Ser la compañía comercializadora de alimentos líder caracterizada por brindar un servicio de calidad...",
@@ -135,7 +62,7 @@ const texts = {
         "garlic_purple_packing_title": "Packing",
         "garlic_purple_packing1": "Cajas de cartón de 10 kg o 22 lb",
         "garlic_purple_packing2": "Mallas de 25 kg o 55 lb",
-        "garlic_gallery_title": "Gallery",
+        "garlic_gallery_title": "Galería",
         "garlic_napuri_title": "Ajo Napurí Mejorado",
         "garlic_napuri_color_title": "Color",
         "garlic_napuri_color_value": "Morado o blanco",
@@ -161,12 +88,16 @@ const texts = {
         "preview_descripcion": "Descubre la calidad y frescura de nuestros principales cultivos de exportación.",
         "preview_1": "Pimiento Páprika",
         "preview_2": "Ajo",
-        "preview_3": "Pimiento Ancho"
+        "preview_3": "Pimiento Ancho",
+        "product_1": "Ají Páprika",
+        "product_2": "Ajo",
+        "product_3": "Pimiento Ancho",
+        "banner_text": "Exportamos productos de la más alta calidad hacia el mundo"
     },
     "en": {
         "nav_inicio": "Home",
-        "nav_productos": "Products",
-        "nav_about": "About us",
+        "nav_productos": "What we offer",
+        "nav_about": "Meet us",
         "nav_contact": "Contact us",
         "vision_titulo": "Vision",
         "vision_texto": "To be the leading food marketing company characterized by providing a quality service...",
@@ -252,71 +183,10 @@ const texts = {
         "preview_descripcion": "Discover the quality and freshness of our main export products.",
         "preview_1": "Paprika Pepper",
         "preview_2": "Garlic",
-        "preview_3": "Ancho Chile Pepper"
+        "preview_3": "Ancho Chile Pepper",
+        "product_1": "Paprika Pepper",
+        "product_2": "Garlic",
+        "product_3": "Ancho Chile Pepper",
+        "banner_text": "We export the highest quality products, from Peru to the world"
     }
 };
-
-function changeLanguage(lang) {
-    if (!texts || !texts[lang]) {
-        console.warn("No translations found for:", lang);
-        return;
-    }
-
-    // Accept either data-value or data-i18n attributes
-    const elementsToTranslate = document.querySelectorAll('[data-value],[data-i18n]');
-
-    elementsToTranslate.forEach(element => {
-        const rawKey = element.getAttribute('data-value') || element.getAttribute('data-i18n');
-        if (!rawKey) return;
-
-        // Try several normalized key forms
-        const candidates = [
-            rawKey,
-            rawKey.replace(/-/g, '_'),
-            rawKey.replace(/_/g, '-'),
-            rawKey.toLowerCase(),
-            rawKey.toLowerCase().replace(/-/g, '_')
-        ];
-
-        let applied = false;
-        for (const key of candidates) {
-            if (Object.prototype.hasOwnProperty.call(texts[lang], key)) {
-                element.innerHTML = texts[lang][key];
-                applied = true;
-                break;
-            }
-        }
-
-        // Fallback: try nested/path lookup using dot-notation or parts
-        if (!applied) {
-            const parts = rawKey.split('.');
-            let node = texts[lang];
-            for (const p of parts) {
-                const pKey = p.replace(/-/g, '_');
-                if (node && Object.prototype.hasOwnProperty.call(node, pKey)) {
-                    node = node[pKey];
-                } else {
-                    node = undefined;
-                    break;
-                }
-            }
-            if (node !== undefined) {
-                element.innerHTML = node;
-                applied = true;
-            }
-        }
-
-        // If still not applied, optional: leave existing content and warn
-        if (!applied) {
-            // console.debug(`No translation for key "${rawKey}" in "${lang}"`);
-        }
-    });
-
-    localStorage.setItem('preferredLang', lang);
-}
-
-// Cargar el idioma guardado al abrir la página
-document.addEventListener("DOMContentLoaded", () => {
-    const savedLang = localStorage.getItem('preferredLang') || 'es';
-    changeLanguage(savedLang);
-});

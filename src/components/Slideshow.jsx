@@ -1,48 +1,73 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import './Slideshow.css';
 
-export default function Slideshow({ images, t }) {
-  const [index, setIndex] = useState(0);
+const Slideshow = ({ images, t }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Lógica de Autoplay
+  useEffect(() => {
+    if (!images || images.length === 0) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [currentIndex, images.length]);
 
   const nextSlide = () => {
-    setIndex((prev) => (prev + 1) % images.length);
+    setCurrentIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
   };
 
   const prevSlide = () => {
-    setIndex((prev) => (prev - 1 + images.length) % images.length);
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
   };
 
-  const goToSlide = (i) => {
-    setIndex(i);
-  };
+  if (!images || images.length === 0) return null;
 
   return (
-    <div className="slideshow-container-wrapper">
-      <div className="slideshow-container">
-        {/* Imagen actual */}
-        <div className="mySlides fade" style={{ display: 'block' }}>
-          <div className="numbertext">{index + 1} / {images.length}</div>
-          <img src={images[index].src} style={{ width: '100%', borderRadius: '10px' }} alt="Gallery" />
-          {/* Texto de la imagen traducido si existe la clave */}
-          {images[index].textKey && (
-            <div className="text">{t(images[index].textKey)}</div>
-          )}
-        </div>
-
-        {/* Botones de navegación */}
-        <button className="prev" onClick={prevSlide}>&#10094;</button>
-        <button className="next" onClick={nextSlide}>&#10095;</button>
+    <div className="slideshow-container">
+      <div 
+        className="slideshow-wrapper" 
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {images.map((image, index) => (
+          <div key={index} className="slide-item">
+            <img 
+              src={image.src} 
+              alt={`Slide ${index}`} 
+              className="slide-image" 
+            />
+            {/* Si tienes t y textKey, muestra el texto */}
+            {t && image.textKey && (
+              <div className="slide-overlay">
+                <p>{t(image.textKey)}</p>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
 
-      {/* Puntos (Dots) indicadores */}
-      <div style={{ textAlign: 'center', marginTop: '10px' }}>
-        {images.map((_, i) => (
-          <span 
-            key={i} 
-            className={`dot ${i === index ? 'active' : ''}`} 
-            onClick={() => goToSlide(i)}
+      <button className="prev-btn" onClick={prevSlide} type="button">&#10094;</button>
+      <button className="next-btn" onClick={nextSlide} type="button">&#10095;</button>
+
+      <div className="dots-container">
+        {images.map((_, index) => (
+          <span
+            key={index}
+            className={`dot ${currentIndex === index ? 'active' : ''}`}
+            onClick={() => setCurrentIndex(index)}
           ></span>
         ))}
       </div>
     </div>
   );
-}
+};
+
+export default Slideshow;

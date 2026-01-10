@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 body {
     font-family: 'Lato', sans-serif;
     background-image: url('/images/fondo.png');
@@ -42,69 +44,6 @@ main {
   z-index: 1;
 }
 
-footer {
-  position: relative;
-  z-index: 1;
-}
-
-.top-banner {
-  background-color: #23623D;
-  padding: 8px 16px;
-  text-align: center;
-}
-
-.banner-text {
-  margin: 0;
-  font-size: 0.85rem;
-  color: white;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-}
-
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 16px;
-    background-color: white;
-}
-
-.logo-placeholder img {
-    height: 100px;
-    width: 200px;
-}
-
-nav .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 24px;
-    margin: 0;
-    padding: 0;
-}
-
-nav .nav-links li {
-    display: inline;
-}
-
-nav .nav-links a {
-    font-family: 'Open Sans', sans-serif;
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-nav .nav-links a i {
-    font-size: 0.75rem;
-}
-
-nav .nav-links a:hover {
-    color: 	#4CAF50;
-}
-
 header h1 {
     text-align: center;
     margin-top: 16px;
@@ -145,47 +84,6 @@ body,
     justify-content: space-between;
     padding: 16px 16px;
     background-color: #4CAF50;
-}
-
-/* Dropdown container */
-.dropdown {
-  position: relative;
-}
-
-/* Hide dropdown content by default */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #ffffff;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-  z-index: 1;
-  padding: 0;
-  margin: 0;
-}
-
-/* Style for dropdown items */
-.dropdown-content li {
-  list-style: none;
-}
-
-.dropdown-content li a {
-  color: #333333;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  flex-direction: row;
-}
-
-/* Hover effect for dropdown items */
-.dropdown-content li a:hover {
-  z-index: 10000;
-  background-color: #f0f0f0;
-}
-
-/* Show dropdown on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
 }
 
 .nav-links {
@@ -611,14 +509,6 @@ h3 {
 
   .contact-text {
     max-width: 100%;
-    text-align: center;
-  }
-
-  /* Footer: Stack text and icons */
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
     text-align: center;
   }
 

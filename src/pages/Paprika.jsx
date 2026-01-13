@@ -1,48 +1,95 @@
 import React from 'react';
+import Slideshow from '../components/Slideshow';
 
-export default function Paprika() {
+export default function Paprika({ t }) {
+  const paprikaImages = [
+    { src: "/images/paprika_1.jpeg", textKey: "slide1_text" },
+    { src: "/images/pimiento_1.jpg", textKey: "slide2_text" },
+    { src: "/images/pimiento_2.jpg", textKey: "slide3_text" }
+  ];
+
   return (
-    <main>
-      {/* 1. Cambiamos class por className */}
-      <div className="main-text">
-        <h2 data-value="paprika_title">Ají Páprika</h2>   
-        
-        <p data-value="paprika_description">
-          Páprika (capsicum annum L.) es una variedad de pimiento dulce con la particularidad de ser alargado, distinto al 
-          "pimiento rojo" o "pimentón". Sus características de color, intensidad de picante y sabor, cambia de acuerdo a 
-          las mejoras genéticas de la planta y las técnicas de cultivo.
+    <main className="min-h-screen pt-10 pb-20">
+      {/* Encabezado Principal */}
+      <div className="max-w-7xl mx-auto px-6 text-center mb-16">
+        <h1 className="text-4xl md:text-5xl font-bold text-[#28623f] mb-6 font-montserrat uppercase tracking-tight">
+          {t('paprika_title')}
+        </h1>
+        <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          {t('paprika_description')}
         </p>
+      </div>
 
-        {/* Estructura de Ficha Técnica mejorada para legibilidad */}
-        <h2 data-value="paprika_specs_title">Ficha técnica</h2>
-        
-        <div className="specs-grid" style={{ textAlign: 'left', maxWidth: '600px', margin: '0 auto' }}>
-          <h3 data-value="paprika_color_title">Color</h3>
-          <h4 data-value="paprika_color_value">Rojizo</h4>
+      <div className="max-w-7xl mx-auto px-6">
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          {/* LADO IZQUIERDO: Información Técnica (Estética Idéntica a Pepper) */}
+          <div className="space-y-6">
+            <div className="inline-block px-4 py-1 bg-red-100 text-red-700 rounded-full text-sm font-bold uppercase tracking-widest mb-2">
+              {t('paprika_specs_tag') || 'Especificaciones de Exportación'}
+            </div>
+            
+            <h2 className="text-3xl font-bold text-gray-800 font-montserrat">
+              {t('paprika_specs_title')}
+            </h2>
 
-          <h3 data-value="paprika_size_title">Tamaño</h3>
-          <h4 data-value="paprika_size_value1"> {'>'} 12cm - 90% max.</h4>
-          <h4 data-value="paprika_size_value2"> {'<'} 12cm - 10% min.</h4>
+            {/* CAJA UNIFICADA: Glassmorphism Style */}
+            <div className="bg-white/80 backdrop-blur-md p-8 rounded-3xl shadow-lg border border-white/20 space-y-6">
+              
+              {/* Grid de Color y Humedad */}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <span className="block text-xs font-bold text-[#28623f] uppercase mb-1">{t('paprika_color_title')}</span>
+                  <p className="text-gray-700 font-medium">{t('paprika_color_value')}</p>
+                </div>
+                <div>
+                  <span className="block text-xs font-bold text-[#28623f] uppercase mb-1">{t('paprika_humidity_title')}</span>
+                  <p className="text-gray-700 font-medium">{t('paprika_humidity_value')}</p>
+                </div>
+              </div>
 
-          <h3 data-value="paprika_packing_title">Packing</h3>
-          <h4 data-value="paprika_packing_value1">Cajas de cartón de 11.36 kg o 25 lb</h4>
-          <h4 data-value="paprika_packing_value2">Pacas prensadas de 75 kg o 165 lb</h4>
+              {/* Tamaño */}
+              <div className="pt-4 border-t border-gray-200/50">
+                <span className="block text-xs font-bold text-[#28623f] uppercase mb-2">{t('paprika_size_title')}</span>
+                <ul className="space-y-1">
+                  <li className="text-gray-700 flex items-center gap-2">
+                    <i className="fa-solid fa-ruler-horizontal text-xs text-red-600"></i> {t('paprika_size_value1')}
+                  </li>
+                  <li className="text-gray-700 flex items-center gap-2">
+                    <i className="fa-solid fa-ruler-horizontal text-xs text-red-600"></i> {t('paprika_size_value2')}
+                  </li>
+                </ul>
+              </div>
 
-          <h3 data-value="paprika_humidity_title">Humedad</h3>
-          <h4 data-value="paprika_humidity_value"> {'>'} 13% HR</h4>
-        </div>
+              {/* Packing con tarjetas internas suaves */}
+              <div className="pt-4 border-t border-gray-200/50">
+                <span className="block text-xs font-bold text-[#28623f] uppercase mb-2">{t('paprika_packing_title')}</span>
+                <div className="grid grid-cols-1 gap-3">
+                  <div className="flex items-center gap-3 p-3 bg-white/50 rounded-xl border border-white/50">
+                    <i className="fa-solid fa-box-archive text-[#28623f]"></i>
+                    <p className="text-sm text-gray-600">{t('paprika_packing_value1')}</p>
+                  </div>
+                  <div className="flex items-center gap-3 p-3 bg-white/50 rounded-xl border border-white/50">
+                    <i className="fa-solid fa-box-archive text-[#28623f]"></i>
+                    <p className="text-sm text-gray-600">{t('paprika_packing_value2')}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <h2 data-value="paprika_gallery_title" style={{ marginTop: '40px' }}>Galería</h2>
-        
-        {/* Aquí puedes insertar el mismo componente de Slideshow o imágenes fijas */}
-        <div className="image-container">
-           <img 
-             src="/images/paprika_1.jpeg" 
-             alt="Proceso de Páprika" 
-             className="animated-img" 
-             style={{ width: '100%', borderRadius: '15px' }}
-           />
-        </div>
+          {/* LADO DERECHO: Slideshow / Galería */}
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold text-gray-800 lg:hidden text-center">{t('paprika_gallery_title')}</h2>
+            <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white transition-transform hover:scale-[1.01] duration-500">
+               <Slideshow images={paprikaImages} t={t} />
+            </div>
+            <p className="text-center text-sm text-gray-500 italic md:block hidden">
+               {t('paprika_gallery_caption') || 'Procesamiento de páprika en nuestras plantas'}
+            </p>
+          </div>
+
+        </section>
       </div>
     </main>
   );

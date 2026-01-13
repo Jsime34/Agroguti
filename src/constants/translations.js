@@ -92,7 +92,9 @@ export const translations = {
         "product_1": "Ají Páprika",
         "product_2": "Ajo",
         "product_3": "Pimiento Ancho",
-        "banner_text": "Exportamos productos de la más alta calidad hacia el mundo"
+        "banner_text": "Exportamos productos de la más alta calidad hacia el mundo",
+        "main_title_highlight": "Agronegocios e Inversiones Gutierrez E.I.R.L.",
+        "export_quality": "Exportación de calidad"
     },
     "en": {
         "nav_inicio": "Home",
@@ -187,6 +189,8 @@ export const translations = {
         "product_1": "Paprika Pepper",
         "product_2": "Garlic",
         "product_3": "Ancho Chile Pepper",
-        "banner_text": "We export the highest quality products, from Peru to the world"
+        "banner_text": "We export the highest quality products, from Peru to the world",
+        "main_title_highlight": "Agronegocios e Inversiones Gutierrez E.I.R.L.",
+        "export_quality": "Quality export products"
     }
 };

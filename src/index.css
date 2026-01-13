@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@layer base {
+  body {
+    background-image: url('/images/fondo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    /* Un color de respaldo por si la imagen no carga */
+    background-color: #f3f4f6; 
+  }
+}

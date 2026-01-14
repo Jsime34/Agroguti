@@ -1,5 +1,6 @@
 import React from 'react';
 import Slideshow from '../components/Slideshow';
+import PackingZoom from '../components/PackingZoom';
 
 export default function Pepper({ t }) {
   // Configuración de galería para Chile Ancho
@@ -79,7 +80,7 @@ export default function Pepper({ t }) {
           {/* LADO DERECHO: Carrusel */}
           <div className="space-y-6">
             <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform lg:rotate-1 hover:rotate-0 transition-transform duration-500">
-               <Slideshow images={pepperImages} t={t} />
+               <Slideshow images={pepperImages} t={t} showText={false}/>
             </div>
             <div className="bg-[#28623f]/10 p-4 rounded-2xl border border-[#28623f]/20">
               <p className="text-sm text-[#28623f] text-center font-medium">
@@ -91,6 +92,11 @@ export default function Pepper({ t }) {
 
         </section>
       </div>
+      <PackingZoom 
+        title={t('paprika_packing_zoom_title') || "Empaque Detallado de Exportación"}
+        description={t('paprika_packing_zoom_desc') || "Inspeccione la calidad de nuestro envasado y etiquetado de trazabilidad internacional."}
+        imageSrc="/images/caja_aji_seco.png" 
+      />
     </main>
   );
 }

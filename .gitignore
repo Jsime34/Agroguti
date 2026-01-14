@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+/src/generated/prisma
+
+/fotos_jose
+
+.env
+.DS_Store

@@ -1,5 +1,6 @@
 import React from 'react';
 import Slideshow from '../components/Slideshow';
+import PackingZoom from '../components/PackingZoom';
 
 export default function Paprika({ t }) {
   const paprikaImages = [
@@ -82,7 +83,7 @@ export default function Paprika({ t }) {
           <div className="space-y-6">
             <h2 className="text-2xl font-bold text-gray-800 lg:hidden text-center">{t('paprika_gallery_title')}</h2>
             <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white transition-transform hover:scale-[1.01] duration-500">
-               <Slideshow images={paprikaImages} t={t} />
+               <Slideshow images={paprikaImages} t={t} showText={false}/>
             </div>
             <p className="text-center text-sm text-gray-500 italic md:block hidden">
                {t('paprika_gallery_caption') || 'Procesamiento de páprika en nuestras plantas'}
@@ -91,6 +92,11 @@ export default function Paprika({ t }) {
 
         </section>
       </div>
+      <PackingZoom 
+        title={t('paprika_packing_zoom_title') || "Empaque Detallado de Exportación"}
+        description={t('paprika_packing_zoom_desc') || "Inspeccione la calidad de nuestro envasado y etiquetado de trazabilidad internacional."}
+        imageSrc="/images/caja_aji_seco.png" 
+      />
     </main>
   );
 }

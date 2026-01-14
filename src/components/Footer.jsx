@@ -85,7 +85,7 @@ export default function Footer({ t }) {
               <i className="fa-solid fa-earth-americas"></i> Global Export
             </span>
             <span className="flex items-center gap-2">
-              <i className="fa-solid fa-leaf"></i> 100% Organic Quality
+              <i className="fa-solid fa-leaf"></i> Sustainable production
             </span>
           </div>
         </div>

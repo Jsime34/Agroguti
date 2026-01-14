@@ -48,20 +48,14 @@ export default function Home({ t }) {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-[#28623f] to-transparent opacity-30"></div>
         
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 font-montserrat tracking-tight leading-tight">
+          <h1 className="text-4xl md:text-4xl font-bold text-gray-900 mb-8 font-montserrat tracking-tight leading-tight">
             <span className="text-[#28623f]">{t('main_title_highlight')}</span>
           </h1>
           
           <div className="relative">
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-light">
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-bold">
               {t('main_description')}
             </p>
-            {/* Adorno de comillas o ícono sutil */}
-            <div className="flex justify-center mt-8 gap-2">
-              <div className="w-2 h-2 rounded-full bg-[#28623f]/20"></div>
-              <div className="w-2 h-2 rounded-full bg-[#28623f]/50"></div>
-              <div className="w-2 h-2 rounded-full bg-[#28623f]/20"></div>
-            </div>
           </div>
         </div>
       </section>

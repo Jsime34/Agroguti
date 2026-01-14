@@ -1,7 +1,9 @@
 import React from 'react';
+import PackingZoom from '../components/PackingZoom';
 import Slideshow from '../components/Slideshow';
 
 export default function Garlic({ t }) {
+  // 1. Imágenes sin cambios en la estructura para no romper el componente
   const whiteGarlicImages = [
     { src: "/images/ajo_1.jpg", textKey: "slide1_text" },
     { src: "/images/ajo_2.jpg", textKey: "slide2_text" },
@@ -21,7 +23,15 @@ export default function Garlic({ t }) {
   ];
 
   return (
-    <main className="min-h-screen pt-10 pb-20">
+    <main className="min-h-screen pt-10 pb-20 garlic-page">
+      {/* 2. TRUCO CSS: Ocultamos el texto del slideshow solo dentro de .garlic-page */}
+      <style>{`
+        .garlic-page .slideshow-text-container, 
+        .garlic-page .slideshow-overlay-text { 
+          display: none !important; 
+        }
+      `}</style>
+
       {/* Encabezado Principal */}
       <div className="max-w-7xl mx-auto px-6 text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-[#28623f] mb-6 font-montserrat uppercase tracking-tight">
@@ -40,9 +50,10 @@ export default function Garlic({ t }) {
             <div className="inline-block px-4 py-1 bg-green-100 text-[#28623f] rounded-full text-sm font-bold uppercase tracking-widest">
               {t('garlic_white_title')}
             </div>
-            <h2 className="text-3xl font-bold text-gray-800 font-montserrat">{t('garlic_white_color_title') || 'Ajo Blanco'}</h2>
+            <h2 className="text-3xl font-bold text-gray-800 font-montserrat">
+              {t('garlic_white_color_title') || 'Ajo Blanco'}
+            </h2>
             
-            {/* CAJA UNIFICADA (Estilo Pepper/Paprika) */}
             <div className="bg-white/80 backdrop-blur-md p-8 rounded-3xl shadow-lg border border-white/20 space-y-6">
               <div className="grid grid-cols-2 gap-4">
                 <div>
@@ -72,15 +83,15 @@ export default function Garlic({ t }) {
               </div>
             </div>
           </div>
-          <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-            <Slideshow images={whiteGarlicImages} t={t} />
+          <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-video lg:aspect-square">
+            <Slideshow images={whiteGarlicImages} t={t} showText={false}/>
           </div>
         </section>
 
         {/* 2. SECCIÓN AJO MORADO */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1 rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-            <Slideshow images={purpleGarlicImages} t={t} />
+          <div className="order-2 lg:order-1 rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-video lg:aspect-square">
+            <Slideshow images={purpleGarlicImages} t={t} showText={false}/>
           </div>
           <div className="order-1 lg:order-2 space-y-6">
             <div className="inline-block px-4 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-bold uppercase tracking-widest">
@@ -162,12 +173,18 @@ export default function Garlic({ t }) {
               </div>
             </div>
           </div>
-          <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-            <Slideshow images={napuriImprovedImages} t={t} />
+          <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-video lg:aspect-square">
+            <Slideshow images={napuriImprovedImages} t={t} showText={false}/>
           </div>
         </section>
 
       </div>
+
+      <PackingZoom 
+        title={t('garlic_packing_zoom_title') || "Empaque de Exportación - Ajo"}
+        description={t('garlic_packing_zoom_desc') || "Nuestro empaque garantiza la frescura y protección del bulbo durante el tránsito internacional."}
+        imageSrc="/images/caja_ajo.png" 
+        />
     </main>
   );
 }

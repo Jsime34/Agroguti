@@ -140,7 +140,7 @@ export default function Contacto({ t }) {
           {/* COLUMNA DERECHA: Mapa y Dirección */}
           <div className="relative bg-gray-200 min-h-[400px]">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1915.6841263054817!2d-72.2136014!3d-16.3217448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9143fe259508899b%3A0xe962534f31c0c1b0!2sCalle%20Las%20Moras%2C%20Majes!5e0!3m2!1ses!2spe!4v1700000000000!5m2!1ses!2spe" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3527.5003428225423!2d-72.21686534065007!3d-16.383098410512652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91419b89fb358f23%3A0xa96fbf0a202fdc07!2sAgronegocios%20e%20inversiones%20Gutierrez!5e0!3m2!1ses!2spe!4v1768417277078!5m2!1ses!2spe" 
               className="absolute inset-0 w-full h-full border-0"
               allowFullScreen="" 
               loading="lazy" 

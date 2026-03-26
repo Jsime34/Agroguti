@@ -23,14 +23,7 @@ export default function Garlic({ t }) {
   ];
 
   return (
-    <main className="min-h-screen pt-10 pb-20 garlic-page">
-      {/* 2. TRUCO CSS: Ocultamos el texto del slideshow solo dentro de .garlic-page */}
-      <style>{`
-        .garlic-page .slideshow-text-container, 
-        .garlic-page .slideshow-overlay-text { 
-          display: none !important; 
-        }
-      `}</style>
+    <main className="min-h-screen pt-10 pb-20">
 
       {/* Encabezado Principal */}
       <div className="max-w-7xl mx-auto px-6 text-center mb-16">

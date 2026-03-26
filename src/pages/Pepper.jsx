@@ -93,8 +93,8 @@ export default function Pepper({ t }) {
         </section>
       </div>
       <PackingZoom 
-        title={t('paprika_packing_zoom_title') || "Empaque Detallado de Exportación"}
-        description={t('paprika_packing_zoom_desc') || "Inspeccione la calidad de nuestro envasado y etiquetado de trazabilidad internacional."}
+        title={t('pepper_packing_zoom_title') || "Empaque Detallado de Exportación"}
+        description={t('pepper_packing_zoom_desc') || "Inspeccione la calidad de nuestro envasado y etiquetado de trazabilidad internacional."}
         imageSrc="/images/caja_aji_seco.png" 
       />
     </main>

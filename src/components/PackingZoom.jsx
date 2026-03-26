@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function PackingZoom({ title, description, imageSrc }) {
+export default function PackingZoom({ title, description, imageSrc, hoverLabel }) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
@@ -36,7 +36,7 @@ export default function PackingZoom({ title, description, imageSrc }) {
             {!isHovering && (
               <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
                 <span className="bg-black/40 text-white px-6 py-2 rounded-full backdrop-blur-sm uppercase text-sm font-bold tracking-widest">
-                  Pasa el mouse para ver detalle
+                  {hoverLabel || 'Pasa el mouse para ver detalle'}
                 </span>
               </div>
             )}

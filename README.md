@@ -60,19 +60,6 @@ src/
 - **Responsive:** Mobile-first layout with hamburger menu and slide-in drawer.
 - **Brand color:** `#28623f` (forest green) used throughout headers, buttons, and accents.
 
-## Database Schema
-
-Contact form submissions are stored in a `ContactRequest` table:
-
-```
-id          Int       PK, auto-increment
-fullName    String
-email       String
-message     String
-status      String    default: "PENDIENTE"
-createdAt   DateTime  default: now()
-```
-
 ## Getting Started
 
 ```bash

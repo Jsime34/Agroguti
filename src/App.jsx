@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -27,7 +27,7 @@ function App() {
   };
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <ScrollToTop />
       <div className="min-h-screen bg-gray-100 bg-[url('/images/fondo.png')] bg-cover bg-center bg-fixed bg-no-repeat transition-all duration-500">
 
@@ -48,7 +48,7 @@ function App() {
         <Footer t={t} />
 
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

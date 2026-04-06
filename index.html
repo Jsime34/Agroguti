@@ -16,6 +16,15 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // Restore path from GitHub Pages 404 redirect
+      (function () {
+        var p = new URLSearchParams(window.location.search).get('p');
+        if (p) {
+          window.history.replaceState(null, '', decodeURIComponent(p) + window.location.hash);
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

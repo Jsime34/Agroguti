@@ -15,7 +15,12 @@ import NotFound from './pages/NotFound';
 import { translations } from './constants/translations';
 
 function App() {
-  const [lang, setLang] = useState('es');
+  const [lang, setLang] = useState(() => localStorage.getItem('lang') || 'es');
+
+  const handleSetLanguage = (newLang) => {
+    localStorage.setItem('lang', newLang);
+    setLang(newLang);
+  };
 
   const t = (key) => {
     return translations[lang][key] || key;
@@ -26,7 +31,7 @@ function App() {
       <ScrollToTop />
       <div className="min-h-screen bg-gray-100 bg-[url('/images/fondo.png')] bg-cover bg-center bg-fixed bg-no-repeat transition-all duration-500">
 
-        <Header setLanguage={setLang} t={t} lang={lang} />
+        <Header setLanguage={handleSetLanguage} t={t} lang={lang} />
 
         <main className="relative z-10">
           <Routes>

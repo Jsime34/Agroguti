@@ -1,16 +1,94 @@
-# React + Vite
+# Agroguti — Agricultural Export Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bilingual marketing website for Agroguti, a Peruvian agricultural export company. Showcases products (paprika, garlic, ancho pepper), company info, and a contact form backed by Supabase.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Layer | Technology |
+|-------|-----------|
+| UI | React 19 + Vite 7 (SWC) |
+| Styling | Tailwind CSS 4 |
+| Routing | React Router DOM 7 (HashRouter) |
+| Backend | Supabase (PostgreSQL + REST API) |
+| ORM | Prisma 7 |
+| Deploy | GitHub Pages (`gh-pages`) |
 
-## React Compiler
+**CDN dependencies:** Font Awesome 6, Flag Icons 7, Google Fonts (Montserrat, Open Sans)
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## Project Structure
 
-## Expanding the ESLint configuration
+```
+src/
+├── components/
+│   ├── Header.jsx        # Sticky nav, mobile drawer, language switcher
+│   ├── Footer.jsx        # Contact info, links, social icons
+│   ├── Slideshow.jsx     # Hero image carousel
+│   ├── PackingZoom.jsx   # Interactive product image zoom
+│   └── ScrollToTop.jsx   # Auto-scroll on route change
+├── pages/
+│   ├── Home.jsx          # Landing page with hero & product cards
+│   ├── Nosotros.jsx      # About / company story
+│   ├── Contacto.jsx      # Contact form (Supabase integration)
+│   ├── Paprika.jsx       # Paprika product page
+│   ├── Garlic.jsx        # Garlic varieties page
+│   ├── Pepper.jsx        # Ancho pepper product page
+│   └── NotFound.jsx      # 404 page
+├── constants/
+│   └── translations.js   # Spanish & English i18n strings (200+ keys)
+├── lib/
+│   └── supabase.js       # Supabase client initialization
+└── App.jsx               # Router setup + language state
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Routes
+
+```
+/           → Home
+/nosotros   → About the company
+/contacto   → Contact form
+/paprika    → Paprika product details
+/garlic     → Garlic varieties & specs
+/pepper     → Ancho pepper details
+/*          → 404 Not Found
+```
+
+## Features
+
+- **Bilingual (ES/EN):** Full Spanish and English support, switchable in real time via the header toggle.
+- **Product pages:** Detailed specs (color, humidity, sizing, packing), image galleries with zoom.
+- **Contact form:** Validated form (name, email, message) that saves submissions to Supabase with status feedback.
+- **Responsive:** Mobile-first layout with hamburger menu and slide-in drawer.
+- **Brand color:** `#28623f` (forest green) used throughout headers, buttons, and accents.
+
+## Database Schema
+
+Contact form submissions are stored in a `ContactRequest` table:
+
+```
+id          Int       PK, auto-increment
+fullName    String
+email       String
+message     String
+status      String    default: "PENDIENTE"
+createdAt   DateTime  default: now()
+```
+
+## Getting Started
+
+```bash
+npm install
+npm run dev       # Start dev server
+npm run build     # Production build
+npm run preview   # Preview production build locally
+npm run deploy    # Deploy to GitHub Pages
+```
+
+## Environment Variables
+
+Create a `.env` file at the project root:
+
+```
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+DATABASE_URL=your_postgresql_connection_string
+```

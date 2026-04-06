@@ -23,8 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-/src/generated/prisma
-
 /fotos_jose
 
 .env

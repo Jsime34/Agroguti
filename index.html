@@ -13,10 +13,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>Agroguti</title>
-    <script type="module" crossorigin src="/assets/index-4dnq_d-W.js"></script>
+    <script type="module" crossorigin src="/assets/index-C17_Xe7y.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-DYcTHhM2.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
+    <script>
+      // Restore path from GitHub Pages 404 redirect
+      (function () {
+        var p = new URLSearchParams(window.location.search).get('p');
+        if (p) {
+          window.history.replaceState(null, '', decodeURIComponent(p) + window.location.hash);
+        }
+      })();
+    </script>
   </body>
 </html>

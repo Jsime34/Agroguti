@@ -4,10 +4,10 @@ export default function Nosotros({ t }) {
   const [activeCountry, setActiveCountry] = useState('peru');
 
   const countries = {
-    peru: { title: "Perú", flag: "🇵🇪", desc: "Nuestra base de operaciones y origen de los mejores productos agrícolas del mundo." },
-    usa: { title: t('usa_title'), flag: "🇺🇸", desc: t('usa_description') },
-    mexico: { title: t('mexico_title'), flag: "🇲🇽", desc: t('mexico_description') },
-    spain: { title: t('spain_title'), flag: "🇪🇸", desc: t('spain_description') }
+    peru: { title: "Perú", flag: "pe", desc: t('peru_description') },
+    usa: { title: t('usa_title'), flag: "us", desc: t('usa_description') },
+    mexico: { title: t('mexico_title'), flag: "mx", desc: t('mexico_description') },
+    spain: { title: t('spain_title'), flag: "es", desc: t('spain_description') }
   };
 
   const pasosProceso = [
@@ -97,7 +97,7 @@ export default function Nosotros({ t }) {
           <div className="order-1 lg:order-2 lg:col-span-4 flex flex-col">
             <div className="w-full bg-white p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] shadow-xl border border-gray-100 min-h-[200px] lg:min-h-[350px] flex flex-col justify-center transition-all duration-500">
               <div className="flex items-center gap-4 mb-4 md:mb-6">
-                <span className="text-4xl md:text-5xl drop-shadow-sm">{countries[activeCountry].flag}</span>
+                <span className={`fi fi-${countries[activeCountry].flag} text-4xl md:text-5xl rounded-sm shadow-sm`}></span>
                 <div>
                   <h3 className="text-xl md:text-2xl font-bold text-gray-800 uppercase tracking-tight leading-none">{countries[activeCountry].title}</h3>
                   <div className="h-1.5 w-10 bg-[#28623f] mt-2 rounded-full"></div>

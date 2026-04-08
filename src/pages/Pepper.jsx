@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import Slideshow from '../components/Slideshow';
 import PackingZoom from '../components/PackingZoom';
 
@@ -12,6 +13,14 @@ export default function Pepper({ t }) {
 
   return (
     <main className="min-h-screen pt-10 pb-20">
+      <Helmet>
+        <title>Chile Ancho — Agroguti</title>
+        <meta name="description" content="Chile ancho (poblano seco) peruano de exportación. Capsicum annuum, 1.000–2.000 Scoville. Especificaciones y empaque disponibles." />
+        <meta property="og:url" content="https://agroguti.com/pepper" />
+        <meta property="og:title" content="Chile Ancho de Exportación — Agroguti" />
+        <meta property="og:description" content="Chile ancho peruano de baja picosidad para mercados internacionales. Cajas de 11.36 kg y pacas de 75 kg." />
+        <meta property="og:image" content="https://agroguti.com/images/pimiento_1.jpg" />
+      </Helmet>
       {/* Encabezado Principal */}
       <div className="max-w-7xl mx-auto px-6 text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-[#28623f] mb-6 font-montserrat uppercase tracking-tight">

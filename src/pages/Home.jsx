@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Slideshow from '../components/Slideshow';
 
 function ProductCard({ to, img, title, badge }) {
@@ -37,6 +38,14 @@ export default function Home({ t }) {
 
   return (
     <main className="min-h-screen">
+      <Helmet>
+        <title>Agroguti — Exportación de Productos Agrícolas</title>
+        <meta name="description" content="Exportadores peruanos de ají páprika, ajo y pimiento ancho con más de 20 años de experiencia en mercados internacionales." />
+        <meta property="og:url" content="https://agroguti.com/" />
+        <meta property="og:title" content="Agroguti — Exportación de Productos Agrícolas" />
+        <meta property="og:description" content="Exportadores peruanos de ají páprika, ajo y pimiento ancho con más de 20 años de experiencia en mercados internacionales." />
+        <meta property="og:image" content="https://agroguti.com/images/worker_background.jpeg" />
+      </Helmet>
       {/* 1. HERO SLIDESHOW */}
       <section className="relative h-[60vh] md:h-[80vh] overflow-hidden">
         <Slideshow images={mainSlides} t={t} />

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 export default function Nosotros({ t }) {
   const [activeCountry, setActiveCountry] = useState('peru');
@@ -19,6 +20,14 @@ export default function Nosotros({ t }) {
 
   return (
     <main className="min-h-screen pt-10 pb-20">
+      <Helmet>
+        <title>Quiénes Somos — Agroguti</title>
+        <meta name="description" content="Conoce Agronegocios e Inversiones Gutierrez: misión, visión, cadena de producción y mercados de exportación en USA, México y España." />
+        <meta property="og:url" content="https://agroguti.com/nosotros" />
+        <meta property="og:title" content="Quiénes Somos — Agroguti" />
+        <meta property="og:description" content="Empresa familiar peruana con más de 20 años exportando productos agrícolas de alta calidad a Estados Unidos, México y España." />
+        <meta property="og:image" content="https://agroguti.com/images/proceso_1.jpg" />
+      </Helmet>
       
       {/* 1. SECCIÓN VALORES (Adaptada para móvil) */}
       <div className="max-w-7xl mx-auto px-6 space-y-12 md:space-y-16 mb-20 md:mb-24">

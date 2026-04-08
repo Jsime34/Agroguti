@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import PackingZoom from '../components/PackingZoom';
 import Slideshow from '../components/Slideshow';
 
@@ -24,6 +25,14 @@ export default function Garlic({ t }) {
 
   return (
     <main className="min-h-screen pt-10 pb-20">
+      <Helmet>
+        <title>Ajo de Exportación — Agroguti</title>
+        <meta name="description" content="Ajo peruano de exportación: Chino Blanco, Chino Morado y Napurí Mejorado. Calibres 5, 6 y 7. Cajas y mallas disponibles." />
+        <meta property="og:url" content="https://agroguti.com/garlic" />
+        <meta property="og:title" content="Ajo de Exportación — Agroguti" />
+        <meta property="og:description" content="Tres variedades de ajo peruano para mercados internacionales: Chino Blanco, Chino Morado y Napurí Mejorado." />
+        <meta property="og:image" content="https://agroguti.com/images/ajo_1.jpg" />
+      </Helmet>
 
       {/* Encabezado Principal */}
       <div className="max-w-7xl mx-auto px-6 text-center mb-16">

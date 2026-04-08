@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import Slideshow from '../components/Slideshow';
 import PackingZoom from '../components/PackingZoom';
 
@@ -11,6 +12,14 @@ export default function Paprika({ t }) {
 
   return (
     <main className="min-h-screen pt-10 pb-20">
+      <Helmet>
+        <title>Ají Páprika — Agroguti</title>
+        <meta name="description" content="Páprika de exportación peruana (Capsicum annuum). Especificaciones técnicas, calibres, empaque y galería de producto." />
+        <meta property="og:url" content="https://agroguti.com/paprika" />
+        <meta property="og:title" content="Ají Páprika de Exportación — Agroguti" />
+        <meta property="og:description" content="Páprika peruana de alta calidad para mercados internacionales. Cajas de 11.36 kg y pacas de 75 kg." />
+        <meta property="og:image" content="https://agroguti.com/images/paprika_1.jpeg" />
+      </Helmet>
       {/* Encabezado Principal */}
       <div className="max-w-7xl mx-auto px-6 text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-[#28623f] mb-6 font-montserrat uppercase tracking-tight">

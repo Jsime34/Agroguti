@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { supabase } from '../lib/supabase';
 
 export default function Contacto({ t }) {
@@ -57,6 +58,14 @@ export default function Contacto({ t }) {
 
   return (
     <main className="min-h-screen py-12 px-4 bg-cover bg-center bg-no-repeat bg-fixed" style={{ backgroundImage: "url('/images/paprika_background_1.jpg')" }}>
+      <Helmet>
+        <title>Contáctanos — Agroguti</title>
+        <meta name="description" content="Ponte en contacto con Agroguti. Estamos disponibles de 6:00 a 18:00. Escríbenos o llámanos para consultas de exportación." />
+        <meta property="og:url" content="https://agroguti.com/contacto" />
+        <meta property="og:title" content="Contáctanos — Agroguti" />
+        <meta property="og:description" content="¿Interesado en nuestros productos? Contáctanos para información sobre exportación de páprika, ajo y pimiento ancho." />
+        <meta property="og:image" content="https://agroguti.com/images/worker_background.jpeg" />
+      </Helmet>
       <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden">
 
         <div className="grid grid-cols-1 lg:grid-cols-2">

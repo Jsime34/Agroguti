@@ -17,16 +17,24 @@ export default function Contacto({ t }) {
     if (status) setStatus(null);
   };
 
+  const sanitize = (str) => str.trim().replace(/[<>"'&]/g, (c) => ({
+    '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#x27;', '&': '&amp;'
+  }[c]));
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (formData.fullName.trim().length < 3) {
+    const cleanName = sanitize(formData.fullName);
+    const cleanEmail = sanitize(formData.email);
+    const cleanMessage = sanitize(formData.message);
+
+    if (cleanName.length < 3) {
       setStatus('name_error');
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
+    if (!emailRegex.test(cleanEmail)) {
       setStatus('email_error');
       return;
     }
@@ -38,9 +46,9 @@ export default function Contacto({ t }) {
         .from('ContactRequest')
         .insert([
           {
-            fullName: formData.fullName,
-            email: formData.email,
-            message: formData.message
+            fullName: cleanName,
+            email: cleanEmail,
+            message: cleanMessage
           }
         ]);
 

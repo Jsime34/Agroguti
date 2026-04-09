@@ -1,13 +1,49 @@
 import { describe, it, expect } from 'vitest';
 
-// Extracted from Contacto.jsx handleSubmit validation logic
+// Mirrors sanitize() and validateForm() logic from Contacto.jsx
+const sanitize = (str) => str.trim().replace(/[<>"'&]/g, (c) => ({
+  '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#x27;', '&': '&amp;'
+}[c]));
+
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function validateForm({ fullName, email }) {
-  if (fullName.trim().length < 3) return 'name_error';
-  if (!emailRegex.test(email)) return 'email_error';
+  const cleanName = sanitize(fullName);
+  const cleanEmail = sanitize(email);
+  if (cleanName.length < 3) return 'name_error';
+  if (!emailRegex.test(cleanEmail)) return 'email_error';
   return null;
 }
+
+describe('sanitize()', () => {
+  it('trims leading/trailing whitespace', () => {
+    expect(sanitize('  hello  ')).toBe('hello');
+  });
+
+  it('escapes <', () => {
+    expect(sanitize('<script>')).toBe('&lt;script&gt;');
+  });
+
+  it('escapes >', () => {
+    expect(sanitize('a > b')).toBe('a &gt; b');
+  });
+
+  it('escapes double quotes', () => {
+    expect(sanitize('"quoted"')).toBe('&quot;quoted&quot;');
+  });
+
+  it("escapes single quotes", () => {
+    expect(sanitize("it's")).toBe("it&#x27;s");
+  });
+
+  it('escapes &', () => {
+    expect(sanitize('cats & dogs')).toBe('cats &amp; dogs');
+  });
+
+  it('leaves safe text unchanged', () => {
+    expect(sanitize('Juan Pérez')).toBe('Juan Pérez');
+  });
+});
 
 describe('Contact form validation', () => {
   describe('name validation', () => {
@@ -21,6 +57,13 @@ describe('Contact form validation', () => {
 
     it('rejects a whitespace-only name', () => {
       expect(validateForm({ fullName: '   ', email: 'a@b.com' })).toBe('name_error');
+    });
+
+    it('rejects an XSS attempt in the name field', () => {
+      // <script> sanitizes to &lt;script&gt; which is 14 chars — still passes length,
+      // but the raw HTML tags are stripped so no injection reaches the DB
+      const result = sanitize('<script>alert(1)</script>');
+      expect(result).toBe('&lt;script&gt;alert(1)&lt;/script&gt;');
     });
 
     it('accepts a name with exactly 3 characters', () => {

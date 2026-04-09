@@ -140,8 +140,9 @@ export default function Contacto({ t }) {
               <button
                 type="submit"
                 disabled={loading}
-                className={`w-full ${loading ? 'bg-gray-400' : 'bg-[#28623f] hover:bg-[#1e4a30]'} text-white font-bold py-3 rounded-xl transition-all shadow-lg shadow-green-200 active:scale-95`}
+                className={`w-full flex items-center justify-center gap-2 ${loading ? 'bg-[#28623f]/70 cursor-not-allowed' : 'bg-[#28623f] hover:bg-[#1e4a30]'} text-white font-bold py-3 rounded-xl transition-all shadow-lg shadow-green-200 active:scale-95`}
               >
+                {loading && <i className="fa-solid fa-circle-notch animate-spin"></i>}
                 {loading ? (t('contact_sending') || 'Enviando...') : (t('contact_submit') || 'Enviar Mensaje')}
               </button>
             </form>

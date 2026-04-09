@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -13,6 +13,16 @@ import Pepper from './pages/Pepper';
 import NotFound from './pages/NotFound';
 
 import { translations } from './constants/translations';
+
+function Analytics() {
+  const location = useLocation();
+  useEffect(() => {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'page_view', { page_path: location.pathname });
+    }
+  }, [location.pathname]);
+  return null;
+}
 
 function App() {
   const [lang, setLang] = useState(() => localStorage.getItem('lang') || 'es');
@@ -28,6 +38,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Analytics />
       <ScrollToTop />
       <div className="min-h-screen bg-gray-100 bg-[url('/images/fondo.png')] bg-cover bg-center bg-fixed bg-no-repeat transition-all duration-500">
 

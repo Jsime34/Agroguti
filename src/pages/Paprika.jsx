@@ -5,9 +5,9 @@ import PackingZoom from '../components/PackingZoom';
 
 export default function Paprika({ t }) {
   const paprikaImages = [
-    { src: "/images/paprika_1.jpeg", textKey: "slide1_text" },
-    { src: "/images/pimiento_1.jpg", textKey: "slide2_text" },
-    { src: "/images/pimiento_2.jpg", textKey: "slide3_text" }
+    { src: "/images/paprika_primera.png", textKey: "slide1_text" },
+    { src: "/images/paprika_segunda.png", textKey: "slide2_text" },
+    { src: "/images/paprika_4.jpg", textKey: "slide3_text" }
   ];
 
   return (

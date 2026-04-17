@@ -6,9 +6,9 @@ import PackingZoom from '../components/PackingZoom';
 export default function Pepper({ t }) {
   // Configuración de galería para Chile Ancho
   const pepperImages = [
-    { src: "/images/pimiento_1.jpg", textKey: "slide1_text" },
-    { src: "/images/pimiento_2.jpg", textKey: "slide2_text" },
-    { src: "/images/pimiento_3.jpg", textKey: "slide3_text" }
+    { src: "/images/sargento_primera.png", textKey: "slide1_text" },
+    { src: "/images/don_antonio.png", textKey: "slide2_text" },
+    { src: "/images/sargento_segunda.png", textKey: "slide3_text" }
   ];
 
   return (

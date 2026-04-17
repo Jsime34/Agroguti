@@ -88,19 +88,19 @@ export default function Home({ t }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <ProductCard 
               to="/paprika" 
-              img="/images/paprika_1.jpeg" 
+              img="/images/paprika_segunda.png" 
               title={t('product_1')} 
               badge="Exportación"
             />
             <ProductCard 
               to="/garlic" 
-              img="/images/paprika_2.avif" 
+              img="/images/ajo_3.jpeg" 
               title={t('product_2')} 
               badge="Calidad Extra"
             />
             <ProductCard 
               to="/pepper" 
-              img="/images/ajo_2.jpg" 
+              img="/images/sargento_primera.png" 
               title={t('product_3')} 
               badge="Majes, Perú"
             />

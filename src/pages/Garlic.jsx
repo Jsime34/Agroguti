@@ -12,15 +12,15 @@ export default function Garlic({ t }) {
   ];
 
   const purpleGarlicImages = [
-    { src: "/images/pimiento_1.jpg", textKey: "slide1_text" },
-    { src: "/images/pimiento_2.jpg", textKey: "slide2_text" },
-    { src: "/images/pimiento_3.jpg", textKey: "slide3_text" }
+    { src: "/images/ajo_7.webp", textKey: "slide1_text" },
+    { src: "/images/ajo_8.webp", textKey: "slide2_text" },
+    { src: "/images/ajo_9.jpg", textKey: "slide3_text" }
   ];
 
   const napuriImprovedImages = [
-    { src: "/images/pimiento_4.jpg", textKey: "slide1_text" },
-    { src: "/images/pimiento_5.jpg", textKey: "slide2_text" },
-    { src: "/images/pimiento_6.jpg", textKey: "slide3_text" }
+    { src: "/images/ajo_4.jpg", textKey: "slide1_text" },
+    { src: "/images/ajo_5.jpg", textKey: "slide2_text" },
+    { src: "/images/ajo_6.webp", textKey: "slide3_text" }
   ];
 
   return (

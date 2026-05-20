@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
+import { getAllProducts } from '../lib/productsRepo';
 
-export default function Footer({ t }) {
+export default function Footer({ t, lang }) {
   const currentYear = new Date().getFullYear();
+  const products = getAllProducts();
 
   return (
     <footer className="bg-[#28623f] text-white pt-16 pb-8">
@@ -28,21 +30,16 @@ export default function Footer({ t }) {
               {t('nav_productos') || 'Productos'}
             </h4>
             <ul className="space-y-3 text-sm">
-              <li>
-                <Link to="/paprika" className="text-gray-200 hover:text-white transition-colors flex items-center gap-2">
-                  <i className="fa-solid fa-chevron-right text-[10px]"></i> {t('product_1')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/garlic" className="text-gray-200 hover:text-white transition-colors flex items-center gap-2">
-                  <i className="fa-solid fa-chevron-right text-[10px]"></i> {t('product_2')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/pepper" className="text-gray-200 hover:text-white transition-colors flex items-center gap-2">
-                  <i className="fa-solid fa-chevron-right text-[10px]"></i> {t('product_3')}
-                </Link>
-              </li>
+              {products.map((p) => (
+                <li key={p.slug}>
+                  <Link
+                    to={`/${p.slug}`}
+                    className="text-gray-200 hover:text-white transition-colors flex items-center gap-2"
+                  >
+                    <i className="fa-solid fa-chevron-right text-[10px]"></i> {p.hero.title[lang]}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

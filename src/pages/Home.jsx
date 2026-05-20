@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Slideshow from '../components/Slideshow';
+import { getAllProducts } from '../lib/productsRepo';
 
 function ProductCard({ to, img, title, badge }) {
   return (
@@ -29,12 +30,14 @@ function ProductCard({ to, img, title, badge }) {
   );
 }
 
-export default function Home({ t }) {
+export default function Home({ t, lang }) {
   const mainSlides = [
     { src: "/images/worker_background.jpeg", textKey: "slide1_text" },
     { src: "/images/pimiento_6.jpg", textKey: "slide2_text" },
     { src: "/images/proceso_1.jpg", textKey: "slide3_text" }
   ];
+
+  const products = getAllProducts();
 
   return (
     <main className="min-h-screen">
@@ -86,24 +89,15 @@ export default function Home({ t }) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <ProductCard 
-              to="/paprika" 
-              img="/images/paprika_segunda.png" 
-              title={t('product_1')} 
-              badge="Exportación"
-            />
-            <ProductCard 
-              to="/garlic" 
-              img="/images/ajo_3.jpeg" 
-              title={t('product_2')} 
-              badge="Calidad Extra"
-            />
-            <ProductCard 
-              to="/pepper" 
-              img="/images/sargento_primera.png" 
-              title={t('product_3')} 
-              badge="Majes, Perú"
-            />
+            {products.map((p) => (
+              <ProductCard
+                key={p.slug}
+                to={`/${p.slug}`}
+                img={p.homeCard.image}
+                title={p.hero.title[lang]}
+                badge={p.homeCard.badge[lang]}
+              />
+            ))}
           </div>
         </div>
       </section>

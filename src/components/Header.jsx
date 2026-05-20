@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { getAllProducts } from '../lib/productsRepo';
 
 export default function Header({ setLanguage, t, lang }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,8 +15,10 @@ export default function Header({ setLanguage, t, lang }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const products = getAllProducts();
+  const productPaths = products.map((p) => `/${p.slug}`);
   const isActive = (path) => location.pathname === path;
-  const isProductActive = ['/paprika', '/garlic', '/pepper'].includes(location.pathname);
+  const isProductActive = productPaths.includes(location.pathname);
 
   const linkClass = (path) =>
     `font-semibold transition-colors uppercase text-sm tracking-wider ${
@@ -61,9 +64,23 @@ export default function Header({ setLanguage, t, lang }) {
                   <i className="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
                 </span>
                 <ul className="absolute left-0 top-full hidden group-hover:block w-48 bg-white shadow-xl rounded-xl border border-gray-100 py-2">
-                  <li><Link to="/paprika" className={`block px-4 py-2 text-sm transition-colors ${isActive('/paprika') ? 'bg-green-50 text-[#28623f] font-semibold' : 'text-gray-600 hover:bg-green-50 hover:text-[#28623f]'}`}>{t('product_1')}</Link></li>
-                  <li><Link to="/garlic" className={`block px-4 py-2 text-sm transition-colors ${isActive('/garlic') ? 'bg-green-50 text-[#28623f] font-semibold' : 'text-gray-600 hover:bg-green-50 hover:text-[#28623f]'}`}>{t('product_2')}</Link></li>
-                  <li><Link to="/pepper" className={`block px-4 py-2 text-sm transition-colors ${isActive('/pepper') ? 'bg-green-50 text-[#28623f] font-semibold' : 'text-gray-600 hover:bg-green-50 hover:text-[#28623f]'}`}>{t('product_3')}</Link></li>
+                  {products.map((p) => {
+                    const path = `/${p.slug}`;
+                    return (
+                      <li key={p.slug}>
+                        <Link
+                          to={path}
+                          className={`block px-4 py-2 text-sm transition-colors ${
+                            isActive(path)
+                              ? 'bg-green-50 text-[#28623f] font-semibold'
+                              : 'text-gray-600 hover:bg-green-50 hover:text-[#28623f]'
+                          }`}
+                        >
+                          {p.hero.title[lang]}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </li>
 
@@ -115,9 +132,19 @@ export default function Header({ setLanguage, t, lang }) {
             <div className="text-center group">
               <span className="text-2xl font-bold text-gray-400 uppercase tracking-widest block mb-4">{t('nav_productos')}</span>
               <div className="flex flex-col gap-4">
-                <Link to="/paprika" onClick={closeMenu} className={`text-xl ${isActive('/paprika') ? 'text-[#28623f] font-bold' : 'text-gray-700'}`}>{t('product_1')}</Link>
-                <Link to="/garlic" onClick={closeMenu} className={`text-xl ${isActive('/garlic') ? 'text-[#28623f] font-bold' : 'text-gray-700'}`}>{t('product_2')}</Link>
-                <Link to="/pepper" onClick={closeMenu} className={`text-xl ${isActive('/pepper') ? 'text-[#28623f] font-bold' : 'text-gray-700'}`}>{t('product_3')}</Link>
+                {products.map((p) => {
+                  const path = `/${p.slug}`;
+                  return (
+                    <Link
+                      key={p.slug}
+                      to={path}
+                      onClick={closeMenu}
+                      className={`text-xl ${isActive(path) ? 'text-[#28623f] font-bold' : 'text-gray-700'}`}
+                    >
+                      {p.hero.title[lang]}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
 

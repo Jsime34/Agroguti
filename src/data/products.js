@@ -305,11 +305,10 @@ const products = [
       badge: { es: 'Calidad top', en: 'Top quality' },
     },
     availability: {
-      months: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      months: [4, 5, 6, 7, 8, 9, 10, 11, 12],
       peak: [9, 10, 11],
     },
     variants: [
-      // 4a. Thompson Seedless
       {
         key: 'thompson',
         accent: {
@@ -336,7 +335,7 @@ const products = [
           '/images/uva_thompson_3.jpg',
         ],
       },
-      // 4b. Red Globe
+
       {
         key: 'red_globe',
         accent: {
@@ -366,10 +365,6 @@ const products = [
     ],
   },
 
-  // ────────────────────────────────────────────────────────────────
-  // 5. TBD-2 — placeholder, fill in later
-  // TODO: real content
-  // ────────────────────────────────────────────────────────────────
   {
     slug: 'avocado',
     hero: {
@@ -392,8 +387,8 @@ const products = [
       badge: { es: 'Calidad top', en: 'Top quality' },
     },
     availability: {
-      months: [3, 4, 5, 6],
-      peak: [4, 5],
+      months: [3, 4, 5, 6, 7],
+      peak: [4, 5, 6],
     },
     variants: [
       {
@@ -414,10 +409,6 @@ const products = [
     ],
   },
 
-  // ────────────────────────────────────────────────────────────────
-  // 6. TBD-3 — placeholder, fill in later
-  // TODO: real content
-  // ────────────────────────────────────────────────────────────────
   {
     slug: 'pomegranate',
     hero: {
@@ -440,8 +431,8 @@ const products = [
       badge: { es: 'Calidad top', en: 'Top quality' },
     },
     availability: {
-      months: [3, 4, 5, 6],
-      peak: [4, 5],
+      months: [12, 1, 2, 3, 4],
+      peak: [2, 3],
     },
     variants: [
       {

@@ -67,7 +67,9 @@ export default function AvailabilityCalendar({ availability, lang, t }) {
 
         <div className="flex flex-wrap items-center gap-4 mt-6 text-xs text-gray-700">
           <div className="flex items-center gap-2">
-            <span className="inline-block w-4 h-4 rounded bg-[#28623f]"></span>
+            <span className="inline-flex items-center justify-center w-4 h-4 rounded bg-[#28623f]">
+              <i className="fa-solid fa-star text-white text-[8px]"></i>
+            </span>
             <span>{t('availability_legend_peak')}</span>
           </div>
           <div className="flex items-center gap-2">

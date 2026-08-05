@@ -28,7 +28,7 @@ export const translations = {
         "availability_legend_off": "Fuera de temporada",
         "availability_legend_current": "Mes actual",
 
-        "contact_address": "Dirección: Calle Las Moras Lote 1 y Lote 2 Villa San Pedro y San Pablo",
+        "contact_address": "Dirección: Calle Las Moras Lote 13 y Lote 14 Villa San Pedro y San Pablo",
         "contact_phone": "Contáctanos al: +51956899907",
         "contact_email": "Email: jgutierrez@agroguti.com",
         "contact_hours": "Horario de atención: 6:00-18:00",
@@ -103,7 +103,7 @@ export const translations = {
         "availability_legend_off": "Off season",
         "availability_legend_current": "Current month",
 
-        "contact_address": "Address: Calle Las Moras Lote 1 y Lote 2 Villa San Pedro y San Pablo",
+        "contact_address": "Address: Calle Las Moras Lote 13 y Lote 14 Villa San Pedro y San Pablo",
         "contact_phone": "Contact us at: +51956899907",
         "contact_email": "Email: jgutierrez@agroguti.com",
         "contact_hours": "Business hours: 6:00-18:00",
